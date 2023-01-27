@@ -36,12 +36,12 @@ export const Navbar = () => {
             className="d-inline-block "
             src={logoImageUrl}
             alt="Logo"
-            width="120"
-            height="50"
+            width="150"
+            height="150"
           />
         </Link>
         <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
-          <ul className="navbar-nav ms-auto me-auto mb-2 mb-lg-0">
+          <ul className="navbar-nav ms-auto me-auto mb-2 mb-lg-0  h4 gap-4">
             <li className="nav-item">
               <Link className="nav-link" to="/">
                 Inicio
@@ -74,9 +74,9 @@ export const Navbar = () => {
               Buscar
             </button>
           </form>
-          <div className="nav-item">
+          <div className="nav-item ms-2 ms-lg-0">
               <Link className="nav-link" to="/shopping-cart">
-                <i className="fa-solid fa-cart-shopping fa-xl text-body"/>
+                <i className="fa-solid fa-cart-shopping fa-2x text-body"/>
               </Link>
           </div>
         </div>
