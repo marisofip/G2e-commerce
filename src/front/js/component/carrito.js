@@ -10,13 +10,10 @@ const CarShopping = () => {
 	return (
 	
 		<div className="carShopping">
-            <button>
-                <i className="fa-solid fa-cart-shopping fa-xl text-body"  onClick={() => actions.setMostrarCarShop()}/>
+            <button className="btn btn-outline-secondary mt-3">
+                <i className="fa-solid fa-cart-shopping fa-2x text-body"  onClick={() => actions.setMostrarCarShop()}/>
                 {store.carShopping.length}
-              </button>
-			 
-				
-		
+            </button>
 			<ul className={store.mostrarCarShop ? "visible" : "oculto"}>
 				{store.carShopping.map((el, index) => {
 					console.log(index)
