@@ -20,16 +20,11 @@ export const Navbar = () => {
     // </nav>
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarTogglerDemo03"
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
           aria-controls="navbarTogglerDemo03"
           aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
+          aria-label="Toggle navigation">
+                  <span className="navbar-toggler-icon"></span>
         </button>
         <Link className="nav-brand" to="/">
           <img
@@ -74,11 +69,11 @@ export const Navbar = () => {
               Buscar
             </button>
           </form>
-          <div className="nav-item ms-2 ms-lg-0">
+        </div>
+        <div className="nav-item ms-2 ms-lg-0">
               <Link className="nav-link" to="/shopping-cart">
                 <i className="fa-solid fa-cart-shopping fa-2x text-body"/>
               </Link>
-          </div>
         </div>
       </div>
     </nav>
