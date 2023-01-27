@@ -1,54 +1,47 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			message: null,
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			apiUrl: 'https://3001-roacv-g2ecommerce-0eabx2qpntf.ws-us84.gitpod.io/api',
+			products: {},
+			carShopping: [],
+			mostrarCarShop: false
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
+			loadDataFromProducts: () => {
+				const { apiUrl } = getStore()
 
-			getMessage: async () => {
-				try{
-					// fetching data from the backend
-					const resp = await fetch(process.env.BACKEND_URL + "/api/hello")
-					const data = await resp.json()
-					setStore({ message: data.message })
-					// don't forget to return something, that is how the async resolves
-					return data;
-				}catch(error){
-					console.log("Error loading message from backend", error)
-				}
+				fetch(`${apiUrl}/products`)
+					.then((response) => response.json())
+					.then((data) => {
+						//console.log("DATA PRODUCTS", data)
+						setStore({
+							characters: data
+						})
+					})
+					.catch(error => console.log("error", error));
 			},
-			changeColor: (index, color) => {
-				//get the store
+			
+			agregarCarShop: id => {
+				const store = getStore();
+				//setStore({ carShopping: [...store.carshopping, store.characters[id - 1]] });
+				setStore(store.carShopping.push(id))},
+			eliminarCarShop: index => {
 				const store = getStore();
 
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
+				const eliminar = store.carShopping.filter((el, i) => {
+					return index !== i;
 				});
-
-				//reset the global store
-				setStore({ demo: demo });
+				console.log(eliminar);
+				setStore({ carShopping: eliminar });
+				console.log(store.carShopping);
+			},
+			setMostrarCarShop: e => {
+				const store = getStore();
+				setStore({ mostrarCarShop: !store.mostrarCarShop });
 			}
+			
 		}
 	};
-};
+}
 
 export default getState;

@@ -3,6 +3,8 @@ import { Navbar } from "react-bootstrap";
 import { Context } from "../store/appContext";
 
 export const Detail = () => {
+    const { store, actions } = useContext(Context);
+   
     return (
         <div className="container">
             <div className="row">
@@ -59,7 +61,7 @@ export const Detail = () => {
                     </div>
                     <div className="row addButtom">
                         <div className="col 4">
-                            <button type="button" class="btn btn-success btn-md">Agregar</button>
+                            <button type="button" class="btn btn-success btn-md"  onClick={() => { actions.agregarCarShop("Nombre del Producto") }}>Agregar</button>
                         </div>
                     </div>
                 </div>

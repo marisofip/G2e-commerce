@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logoImageUrl from "../../img/logo.png";
+import CarShopping from "./carrito";
 import { Shop } from "../pages/shop";
 
 export const Navbar = () => {
@@ -72,7 +73,7 @@ export const Navbar = () => {
         </div>
         <div className="nav-item ms-2 ms-lg-0">
               <Link className="nav-link" to="/shopping-cart">
-                <i className="fa-solid fa-cart-shopping fa-2x text-body"/>
+              <CarShopping/>
               </Link>
         </div>
       </div>
