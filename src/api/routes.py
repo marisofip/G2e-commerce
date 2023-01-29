@@ -101,6 +101,13 @@ def get_products():
     products = list(map(lambda product: product.serialize(), products))
 
     return jsonify(products), 200
+    
+@api.route('/products/<int:products_id>', methods=['GET'])
+def get_product_id(products_id):
+    products = Product.query.get(products_id)
+    products = products.serialize()
+
+    return jsonify(products), 200
 
 @api.route('/create-product', methods=['POST'])
 def create_product():

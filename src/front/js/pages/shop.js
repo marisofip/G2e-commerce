@@ -13,19 +13,8 @@ export const Shop = () => {
       </h1>
       <div className="container d-flex justify-content-center mt-5  mb-5">
         <Card />
-        <Card />
-        <Card />
-      </div>
-      <div className="container d-flex justify-content-center ">
-        <DetailCard />
-        <DetailCard />
-        <DetailCard />
-        <DetailCard />
-      </div>
-      <div className="container d-flex justify-content-center">
-        <DetailCard />
-        <DetailCard />
-        <DetailCard />
+        </div>
+      <div className="container justify-content-center ">
         <DetailCard />
       </div>
     </>

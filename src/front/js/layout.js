@@ -10,7 +10,7 @@ import { Shop } from "./pages/shop";
 import { ShoppingCart } from "./pages/shopping-cart";
 import injectContext from "./store/appContext";
 import { Detail } from "./pages/detail_product";
-import { Payments } from "./pages/payment.js"
+import { Payments } from "./pages/payment.js";
 import { Categoria } from "./pages/categoryList";
 import { NewCategory } from "./pages/createCategory";
 
@@ -27,41 +27,48 @@ import { Pedidos } from "./pages/pedidos";
 
 //create your first component
 const Layout = () => {
-    //the basename is used when your project is published in a subdirectory and not in the root of the domain
-    // you can set the basename on the .env file located at the root of this project, E.g: BASENAME=/react-hello-webapp/
-    const basename = process.env.BASENAME || "";
+  //the basename is used when your project is published in a subdirectory and not in the root of the domain
+  // you can set the basename on the .env file located at the root of this project, E.g: BASENAME=/react-hello-webapp/
+  const basename = process.env.BASENAME || "";
 
-    return (
-        <div>
-            <BrowserRouter basename={basename}>
-                <ScrollToTop>
-                    <Navbar />
-                    <Routes>
-                        <Route element={<Home />} path="/" />
-                        {/* <Route element={<Demo />} path="/demo" /> */}
-                        <Route element={<Login />} path="/login" />
-                        <Route element={<RegistroUsuario />} path="/registro_usuario" />
-                        <Route element={<Users />} path="/users" />
-                        <Route element={<EditUser />} path="/edit_user" />
-                        <Route element={<Pedidos />} path="/pedidos" />
-                        {/* <Route element={<Single />} path="/single/:theid" /> */}
-                        <Route element={<Shop />} path="/shop" />
-                        <Route element={<Product />} path="/products" />
-                        <Route element={<Create />} path="/create_product" />
-                        <Route element={<Modify />} path="/edit_product" />
-                        <Route element={<ShoppingCart />} path="/shopping-cart" />
-                        <Route element={<Shipping />} path="/shipping" />
-                        <Route element={<Detail />} path="/detail_product" />
-                        <Route element={<Payments />} path="/payment" />
-                        <Route element={<Categoria />} path='/categoryList' />
-                        <Route element={<NewCategory />} path='/createCategory' />
-                        <Route path='*' element={<h1 className="text-center alert alert-info my-5 p-5">Oops! El recurso solicitado no está disponible</h1>} />
-                    </Routes>
-                    <Footer />
-                </ScrollToTop>
-            </BrowserRouter>
-        </div>
-    );
+  return (
+    <div>
+      <BrowserRouter basename={basename}>
+        <ScrollToTop>
+          <Navbar />
+          <Routes>
+            <Route element={<Home />} path="/" />
+            {/* <Route element={<Demo />} path="/demo" /> */}
+            <Route element={<Login />} path="/login" />
+            <Route element={<RegistroUsuario />} path="/registro_usuario" />
+            <Route element={<Users />} path="/users" />
+            <Route element={<EditUser />} path="/edit_user" />
+            <Route element={<Pedidos />} path="/pedidos" />
+            {/* <Route element={<Single />} path="/single/:theid" /> */}
+            <Route element={<Shop />} path="/shop" />
+            <Route element={<Product />} path="/products" />
+            <Route element={<Create />} path="/create_product" />
+            <Route element={<Modify />} path="/edit_product" />
+            <Route element={<ShoppingCart />} path="/shopping-cart" />
+            <Route element={<Shipping />} path="/shipping" />
+            <Route element={<Detail />} path="/detail_product/:id" />
+            <Route element={<Payments />} path="/payment" />
+            <Route element={<Categoria />} path="/categoryList" />
+            <Route element={<NewCategory />} path="/createCategory" />
+            <Route
+              path="*"
+              element={
+                <h1 className="text-center alert alert-info my-5 p-5">
+                  Oops! El recurso solicitado no está disponible
+                </h1>
+              }
+            />
+          </Routes>
+          <Footer />
+        </ScrollToTop>
+      </BrowserRouter>
+    </div>
+  );
 };
 
 export default injectContext(Layout);
