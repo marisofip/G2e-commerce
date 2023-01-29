@@ -148,12 +148,20 @@ def get_categorias():
 @api.route('/create-categoria', methods=['POST'])
 def create_categroriat():
     
-    nombre = request.json.get('nombre')
-    descripcion = request.json.get('descripcion')
-      
+    ## Cambiamos para recibir un form en vez de un json
+    ##nombre = request.json.get('nombre')
+    ##descripcion = request.json.get('descripcion')
+    nombre = request.form['nombre']
+    descripcion = request.form['descripcion']
+    img = None
+    resp_img = None
+    if 'img' in request.files:
+        img = request.files['img']     
 
     if not nombre: return jsonify({"message": "Nombre is required"}), 400
     if not descripcion: return jsonify({"message": "Descripcion is required"}), 400
+    if img:
+        resp_img = cloudinary.uploader.upload(img, folder="imgs")
 
     foundCategoria = Categoria.query.filter_by(nombre=nombre).first()
     if foundCategoria: return jsonify({"message": "Categoria already exists"}), 400
@@ -162,6 +170,7 @@ def create_categroriat():
 
     categoria.nombre = nombre
     categoria.descripcion = descripcion
+    if resp_img: categoria.img = resp_img['secure_url']
    
     categoria.save()
 

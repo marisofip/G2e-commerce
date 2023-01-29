@@ -2,6 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 import os
+import cloudinary
 from flask import Flask, request, jsonify, url_for, send_from_directory
 from flask_migrate import Migrate
 from flask_swagger import swagger
@@ -32,6 +33,13 @@ app.config['JWT_SECRET_KEY'] = 'secretkey'
 MIGRATE = Migrate(app, db, compare_type = True)
 db.init_app(app)
 jwt = JWTManager(app)
+
+# Configuración para cloudinary
+cloudinary.config( 
+  cloud_name = "dotscfgqt", 
+  api_key = "717837441269212", 
+  api_secret = "fstw-Rus4DhSMVZ2aq5r-QALe2M" 
+)
 
 # Allow CORS requests to this API
 CORS(app)

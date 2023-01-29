@@ -125,6 +125,7 @@ class Categoria(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     nombre = db.Column(db.String(250), unique=True, nullable=False)
     descripcion = db.Column(db.String(80), unique=False, nullable=False)
+    img = db.Column(db.String(200), unique=False, nullable=True)
     products = db.relationship('Product', backref= 'categoria')
 
     def __repr__(self):
