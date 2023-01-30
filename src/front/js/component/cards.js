@@ -11,8 +11,7 @@ export const Card = () => {
           store.categorias.length > 1 &&
           store.categorias.map((categorias, index) => {
             return (
-
-            <div className="card mx-auto my-1" key={categorias.id} style={{ width: '33rem' }}>
+            <div className="card mx-auto my-2" key={categorias.id} style={{ width: '33rem' }}>
                 <img src={categorias.img} className="card-img-top" alt="..."/>
                 <div className="card-body">
                     <h5 className="card-title">{categorias.nombre}</h5>

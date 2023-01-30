@@ -14,7 +14,6 @@ export const Home = () => {
 			<h1 className="my-5">Categorías</h1>
 			<div className="row justify-content-evenly mb-5">
 					<Card/> 
-					
 			</div>
 			{/* <div className="alert alert-info">
 				{store.message || "Loading message from the backend (make sure your python backend is running)..."}

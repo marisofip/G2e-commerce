@@ -5,7 +5,7 @@ import CarShopping from "./carrito";
 import { Shop } from "../pages/shop";
 
 export const Navbar = () => {
-  var rolUser= process.env.ROL_USER;
+  var rolUser= "admin";
   return (
     // <nav className="navbar navbar-light bg-light">
     // 	<div className="container">
