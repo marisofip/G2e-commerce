@@ -5,6 +5,7 @@ import CarShopping from "./carrito";
 import { Shop } from "../pages/shop";
 
 export const Navbar = () => {
+  var rolUser= process.env.ROL_USER;
   return (
     // <nav className="navbar navbar-light bg-light">
     // 	<div className="container">
@@ -58,20 +59,22 @@ export const Navbar = () => {
                 Login
               </Link>
             </li>
-            <li className="nav-item dropdown">
-              <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Admin
-              </a>
-              <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><Link className="dropdown-item" to="/create_product">Crear Productos</Link></li>
-                <li><Link className="dropdown-item" to="/products">Ver/Modificar Productos</Link></li>
-                <li><hr className="dropdown-divider"/></li>
-                <li><Link className="dropdown-item" to="/createCategory">Crear Categorías</Link></li>
-                <li><Link className="dropdown-item" to="/categoryList">Ver/Modificar Categorías</Link></li>
-                <li><hr className="dropdown-divider"/></li>
-                <li><a className="dropdown-item" href="#">Something else here</a></li>
-              </ul>
-            </li>
+            {rolUser === "admin" &&
+              <li className="nav-item dropdown">
+                <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Admin
+                </a>
+                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><Link className="dropdown-item" to="/create_product">Crear Productos</Link></li>
+                  <li><Link className="dropdown-item" to="/products">Ver/Modificar Productos</Link></li>
+                  <li><hr className="dropdown-divider"/></li>
+                  <li><Link className="dropdown-item" to="/createCategory">Crear Categorías</Link></li>
+                  <li><Link className="dropdown-item" to="/categoryList">Ver/Modificar Categorías</Link></li>
+                  <li><hr className="dropdown-divider"/></li>
+                  <li><a className="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+            }
           </ul>
           <form className="d-flex" role="search">
             <input

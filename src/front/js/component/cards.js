@@ -13,7 +13,7 @@ export const Card = () => {
             return (
 
             <div className="card mx-auto my-1" key={categorias.id} style={{ width: '33rem' }}>
-                <img src={ImageUrl} className="card-img-top" alt="..."/>
+                <img src={categorias.img} className="card-img-top" alt="..."/>
                 <div className="card-body">
                     <h5 className="card-title">{categorias.nombre}</h5>
                     <p className="card-text">{categorias.descripcion}</p>
