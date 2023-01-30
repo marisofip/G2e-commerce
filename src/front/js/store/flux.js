@@ -2,18 +2,21 @@ const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
       apiUrl:
-      process.env.BACKEND_URL+"/api/",
+        process.env.BACKEND_URL + "/api/",
       products: {},
-	  categorias: {},
+      categorias: {},
       productDetail: {},
       carShopping: [],
       mostrarCarShop: false,
+      isLogged: false,
+      user: null,
     },
     actions: {
+
       loadDataFromProducts: async () => {
         try {
           const resp = await fetch(
-            process.env.BACKEND_URL+"/api/products"
+            process.env.BACKEND_URL + "/api/products"
           );
           const data = await resp.json();
 
@@ -26,9 +29,9 @@ const getState = ({ getStore, getActions, setStore }) => {
           console.log("error", error);
         }
       },
-	  loadDataFromCategorias: async () => {
+      loadDataFromCategorias: async () => {
         try {
-          const resp = await fetch(process.env.BACKEND_URL+"/api/categorias"
+          const resp = await fetch(process.env.BACKEND_URL + "/api/categorias"
           );
           const data = await resp.json();
 
@@ -46,8 +49,8 @@ const getState = ({ getStore, getActions, setStore }) => {
         try {
           console.log("id: " + id);
           const resp = await fetch(
-            process.env.BACKEND_URL+"/api/products/" +
-              id
+            process.env.BACKEND_URL + "/api/products/" +
+            id
           );
           const data = await resp.json();
           setStore({ productDetail: data });
@@ -76,6 +79,58 @@ const getState = ({ getStore, getActions, setStore }) => {
         setStore({ mostrarCarShop: !store.mostrarCarShop });
       },
     },
+
+    getToken: () => {
+      const tokenLocal = localStorage.getItem("token");
+      const userLocal = JSON.parse(localStorage.getItem("user"));
+      setStore({
+        user: {
+          token: tokenLocal,
+          user: userLocal
+        }
+      });
+      console.log("->", tokenLocal);
+      console.log("->", JSON.stringify(userLocal));
+    },
+    setLogin: async user => {
+      const response = await fetch(process.env.BACKEND_URL + "/api/login", {
+        method: "POST",
+        body: JSON.stringify(user),
+        headers: { "Content-type": "application/json" }
+      });
+      if (response.ok) {
+        const json = await response.json();
+        setStore({ user: json, isLogged: true });
+        if (typeof Storage !== undefined) {
+          localStorage.setItem("token", json.token);
+          localStorage.setItem("token", JSON.stringify(json.user));
+        }
+        return response;
+
+      } else {
+        await setStore({ user: null, isLogged: false })
+      }
+    },
+
+    setLogout: async () => {
+      await setStore({ user: null, isLogged: false })
+
+      return true
+    },
+    // setRegister: async () => {
+    //   const response = await fetch(process.env.BACKEND_URL + "/api/registro_usuario", {
+    //     method: "POST",
+    //     body: JSON.stringify(request),
+    //     headers: { "Content-type": "aplications/json" }
+
+    //   });
+    //   if (response.ok) {
+    //     const json = await response.json();
+    //     return true;
+    //   } else {
+    //     return false;
+    //   }
+    // }
   };
 };
 
