@@ -5,13 +5,13 @@ import os
 import cloudinary
 from flask import Flask, request, jsonify, url_for, send_from_directory
 from flask_migrate import Migrate
-from flask_swagger import swa1wxgger
+from flask_swagger import swagger
 from flask_cors import CORS
 from api.utils import APIException, generate_sitemap
 from api.models import db
 from api.routes import api
 from api.admin import setup_admin
-from api.commands import setup_comman
+from api.commands import setup_commands
 from flask_jwt_extended import JWTManager, get_jwt_identity, create_access_token, jwt_required
 
 #from models import Person
@@ -23,6 +23,29 @@ app.url_map.strict_slashes = False
 
 # database condiguration
 db_url = os.getenv("DATABASE_URL")
+
+if db_url is not None:
+    app.config['SQLALCHEMY_DATABASE_URI'] = db_url.replace("postgres://", "postgresql://")
+else:
+    app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:////tmp/test.db"
+
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['JWT_SECRET_KEY'] = 'secretkey'
+MIGRATE = Migrate(app, db, compare_type = True)
+db.init_app(app)
+jwt = JWTManager(app)
+
+# Configuración para cloudinary
+cloudinary.config( 
+  cloud_name = "dotscfgqt", 
+  api_key = "717837441269212", 
+  api_secret = "fstw-Rus4DhSMVZ2aq5r-QALe2M" 
+)
+
+# Allow CORS requests to this API
+CORS(app)
+
+
 
 # add the admin
 setup_commands(app)

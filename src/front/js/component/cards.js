@@ -16,7 +16,7 @@ export const Card = () => {
                 <div className="card-body">
                     <h5 className="card-title">{categorias.nombre}</h5>
                     <p className="card-text">{categorias.descripcion}</p>
-                    <Link to={"/detail_category/"+ categorias.id} className="btn btn-primary">Ir a categoría</Link>
+                    <Link to={"/detail_category/"+ categorias.id} className="btn btn-primary ">Ir a categoría</Link>
                 </div>
             </div>
           );
