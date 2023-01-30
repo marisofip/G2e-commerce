@@ -5,7 +5,7 @@ import CarShopping from "./carrito";
 import { Shop } from "../pages/shop";
 
 export const Navbar = () => {
-  var rolUser= process.env.ROL_USER;
+  var rolUser= "admin";
   return (
     // <nav className="navbar navbar-light bg-light">
     // 	<div className="container">
@@ -71,7 +71,10 @@ export const Navbar = () => {
                   <li><Link className="dropdown-item" to="/createCategory">Crear Categorías</Link></li>
                   <li><Link className="dropdown-item" to="/categoryList">Ver/Modificar Categorías</Link></li>
                   <li><hr className="dropdown-divider"/></li>
-                  <li><a className="dropdown-item" href="#">Something else here</a></li>
+                  <li><Link className="dropdown-item" to="/pedidos">Pedidos</Link></li>
+                  <li><hr className="dropdown-divider"/></li>
+                  <li><Link className="dropdown-item" to="/users">Usuarios</Link></li>
+                  <li><Link className="dropdown-item" to="/edit_user">Crear Usuarios</Link></li>
                 </ul>
               </li>
             }

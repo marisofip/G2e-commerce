@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 0ae7b6efe7e8
+Revision ID: 6c57d38fc2a7
 Revises: 
-Create Date: 2023-01-25 19:52:50.765383
+Create Date: 2023-01-30 13:38:27.522739
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '0ae7b6efe7e8'
+revision = '6c57d38fc2a7'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -22,6 +22,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('nombre', sa.String(length=250), nullable=False),
     sa.Column('descripcion', sa.String(length=80), nullable=False),
+    sa.Column('img', sa.String(length=200), nullable=True),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('nombre')
     )
@@ -41,7 +42,7 @@ def upgrade():
     )
     op.create_table('tip_documents',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('tipo', sa.Integer(), nullable=True),
+    sa.Column('tipo', sa.String(length=10), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('users',
@@ -57,30 +58,31 @@ def upgrade():
     op.create_table('documentos',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('users_id', sa.Integer(), nullable=True),
-    sa.Column('direccions_id', sa.Integer(), nullable=True),
+    sa.Column('direcciones_id', sa.Integer(), nullable=True),
     sa.Column('iva', sa.Integer(), nullable=False),
     sa.Column('total', sa.Integer(), nullable=False),
     sa.Column('tipo_id', sa.Integer(), nullable=True),
-    sa.ForeignKeyConstraint(['direccions_id'], ['direcciones.id'], ),
+    sa.ForeignKeyConstraint(['direcciones_id'], ['direcciones.id'], ),
     sa.ForeignKeyConstraint(['tipo_id'], ['tip_documents.id'], ),
     sa.ForeignKeyConstraint(['users_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('pedidos',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('user_id', sa.Integer(), nullable=False),
-    sa.Column('direccions_id', sa.Integer(), nullable=True),
+    sa.Column('user_id', sa.Integer(), nullable=True),
+    sa.Column('direcciones_id', sa.Integer(), nullable=True),
     sa.Column('status', sa.Integer(), nullable=False),
     sa.Column('total', sa.Integer(), nullable=False),
-    sa.ForeignKeyConstraint(['direccions_id'], ['direcciones.id'], ),
-    sa.PrimaryKeyConstraint('id'),
-    sa.UniqueConstraint('user_id')
+    sa.ForeignKeyConstraint(['direcciones_id'], ['direcciones.id'], ),
+    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
+    sa.PrimaryKeyConstraint('id')
     )
     op.create_table('products',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('nombre', sa.String(length=250), nullable=False),
     sa.Column('descripcion', sa.String(length=80), nullable=False),
     sa.Column('precio', sa.Integer(), nullable=False),
+    sa.Column('img', sa.String(length=200), nullable=True),
     sa.Column('categoria_id', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['categoria_id'], ['categorias.id'], ),
     sa.PrimaryKeyConstraint('id'),

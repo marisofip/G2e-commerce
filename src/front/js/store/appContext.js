@@ -20,8 +20,7 @@ const injectContext = (PassedComponent) => {
           }),
       })
     );
-
-    useEffect(() => {
+      useEffect(() => {
       /**
        * EDIT THIS!
        * This function is the equivalent to "window.onLoad", it only runs once on the entire application lifetime
@@ -29,7 +28,7 @@ const injectContext = (PassedComponent) => {
        * store, instead use actions, like this:
        **/
       state.actions.loadDataFromProducts();
-	  state.actions.loadDataFromCategorias(); // <---- calling this function from the flux.js actions
+	    state.actions.loadDataFromCategorias(); // <---- calling this function from the flux.js actions
     }, []);
 
     // The initial value for the context is not null anymore, but the current state of this component,

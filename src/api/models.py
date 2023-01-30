@@ -155,6 +155,7 @@ class Product(db.Model):
     nombre = db.Column(db.String(250), unique=True, nullable=False)
     descripcion = db.Column(db.String(80), unique=False, nullable=False)
     precio = db.Column(db.Integer, unique=False, nullable=False)
+    img = db.Column(db.String(200), unique=False, nullable=True)
     categoria_id = db.Column("categoria_id", db.Integer, db.ForeignKey("categorias.id"))
     
 
@@ -167,7 +168,8 @@ class Product(db.Model):
             "nombre": self.nombre,
             "descripcion": self.descripcion,
             "precio": self.precio,
-            "categoria_id": self.categoria_id
+            "categoria_id": self.categoria_id,
+            "img": self.img
             # do not serialize the password, its a security breach
         }
     def save(self):

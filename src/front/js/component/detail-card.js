@@ -12,12 +12,12 @@ export const DetailCard = () => {
         store.products.length > 1 &&
         store.products.map((products, index) => {
           return (
-            <div className="card mb-3">
+            <div className="card mb-3" key={products.id}>
               <div className="row g-0">
                 <div className="col-md-4">
                   <img
-                    src={ImageUrl}
-                    class="img-fluid rounded-start h-100"
+                    src={products.img}
+                    className="img-fluid rounded-start h-100"
                     alt="..."
                   />
                 </div>
