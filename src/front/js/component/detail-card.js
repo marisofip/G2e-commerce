@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { Detail } from "../pages/detail_product";
 
-export const DetailCard = () => {
+export const DetailCard = (item) => {
   const { store } = useContext(Context);
   return (
     <>

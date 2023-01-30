@@ -110,6 +110,13 @@ def get_product_id(products_id):
 
     return jsonify(products), 200
 
+@api.route('/products/categoria/<int:categoria_id>', methods=['GET'])
+def get_product_categoria_id(categoria_id):
+    producto = Product.query.filter_by(categoria_id = categoria_id).all()
+    producto_categoria = [products.serialize() for products in producto]
+       
+    return jsonify(producto_categoria), 200
+
 @api.route('/create-product', methods=['POST'])
 def create_product():
     
