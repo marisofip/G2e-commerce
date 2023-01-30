@@ -1,7 +1,7 @@
 import React from "react";
-import ImageUrl from "../../img/fondo.png";
-import Image1qUrl from "../../img/fondo.png";
-import Image2Url from "../../img/fondo.png";
+import ImageUrl from "../../img/catgame.jpg";
+import Image1qUrl from "../../img/catnotebook.jpg";
+import Image2Url from "../../img/catnet.webp";
 
 
 export const Carousel = () => {
@@ -14,13 +14,25 @@ export const Carousel = () => {
             </div>
             <div className="carousel-inner">
                 <div className="carousel-item active">
-                <img src={ImageUrl} className="d-block w-100" alt="..."/>
+                    <img src={ImageUrl} className="d-block w-100" alt="..." style={{ height: '700px' }}/>
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1>20% Descuento en todas las consolas</h1>
+                        <p></p>
+                    </div>
                 </div>
                 <div className="carousel-item">
-                <img src={Image1qUrl} className="d-block w-100" alt="..."/>
+                    <img src={Image1qUrl} className="d-block w-100" alt="..." style={{ height: '700px' }}/>
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1 className="text-body">Descubra la nueva línea de bolsos para notebooks</h1>
+                        <p></p>
+                    </div>
                 </div>
                 <div className="carousel-item">
-                <img src={Image2Url} className="d-block w-100" alt="..."/>
+                    <img src={Image2Url} className="d-block w-100" alt="..." style={{ height: '700px' }}/>
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1>Todo en conectividad para el hogar y oficina</h1>
+                        <p></p>
+                    </div>
                 </div>
             </div>
             <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
