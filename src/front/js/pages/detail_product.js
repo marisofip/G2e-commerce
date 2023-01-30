@@ -8,13 +8,18 @@ import { DetailCard } from "../component/detail-card";
 
 
 export const Detail = props  => {
-    const params = useParams();
+    const {id} = useParams();
     const {store, actions}  = useContext(Context);
 
     useEffect(() => {
       
-      actions.getDetailProduct(params.id)
+      actions.getDetailProduct(id)
     }, [])
+    useEffect(() => {
+      
+      actions.getDetailProduct(id)
+    }, [id])
+    
     
     const product = store.productDetail
     
