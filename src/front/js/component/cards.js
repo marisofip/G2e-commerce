@@ -1,9 +1,12 @@
 import React, { useContext } from "react";
 import ImageUrl from "../../img/fondo.png";
+import {Link} from "react-router-dom";
 import { Context } from "../store/appContext";
 
 export const Card = () => {
     const { store } = useContext(Context);
+    
+   
     return (
       <>
         {store.categorias !== null &&
@@ -16,7 +19,7 @@ export const Card = () => {
                 <div className="card-body">
                     <h5 className="card-title">{categorias.nombre}</h5>
                     <p className="card-text">{categorias.descripcion}</p>
-                    <a href="#" className="btn btn-primary">Ir a categoría</a>
+                    <Link to={"/detail_category/"+ categorias.id} className="btn btn-primary">Ir a categoría</Link>
                 </div>
             </div>
  );
