@@ -2,7 +2,7 @@ const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
       apiUrl:
-        "https://3001-roacv-g2ecommerce-j0t49ea2y6y.ws-us84.gitpod.io/api/",
+      process.env.BACKEND_URL+"/api/",
       products: {},
 	  categorias: {},
       productDetail: {},
@@ -13,7 +13,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       loadDataFromProducts: async () => {
         try {
           const resp = await fetch(
-            "https://3001-roacv-g2ecommerce-j0t49ea2y6y.ws-us84.gitpod.io/api/products"
+            process.env.BACKEND_URL+"/api/products"
           );
           const data = await resp.json();
 
@@ -28,8 +28,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
 	  loadDataFromCategorias: async () => {
         try {
-          const resp = await fetch(
-            "https://3001-roacv-g2ecommerce-j0t49ea2y6y.ws-us84.gitpod.io/api/categorias"
+          const resp = await fetch(process.env.BACKEND_URL+"/api/categorias"
           );
           const data = await resp.json();
 
@@ -47,7 +46,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         try {
           console.log("id: " + id);
           const resp = await fetch(
-            "https://3001-roacv-g2ecommerce-j0t49ea2y6y.ws-us84.gitpod.io/api/products/" +
+            process.env.BACKEND_URL+"/api/products/" +
               id
           );
           const data = await resp.json();

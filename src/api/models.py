@@ -136,6 +136,7 @@ class Categoria(db.Model):
             "id": self.id,
             "nombre": self.nombre,
             "descripcion": self.descripcion,
+            "img": self.img
             # do not serialize the password, its a security breach
         }
     def save(self):

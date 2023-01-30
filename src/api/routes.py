@@ -143,7 +143,6 @@ def create_product():
 def get_categorias():
     categorias = Categoria.query.all()
     categorias = list(map(lambda categoria: categoria.serialize(), categorias))
-
     return jsonify(categorias), 200
 
 @api.route('/create-categoria', methods=['POST'])
