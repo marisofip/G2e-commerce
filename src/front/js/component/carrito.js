@@ -10,8 +10,8 @@ const CarShopping = () => {
 	return (
 	
 		<div className="carShopping">
-            <button className="btn btn-outline-secondary mt-3">
-                <i className="fa-solid fa-cart-shopping fa-2x text-body"  onClick={() => actions.setMostrarCarShop()}/>
+            <button className="btn btn-outline-secondary mt-3" onClick={() => actions.setMostrarCarShop()}>
+                <i className="fa-solid fa-cart-shopping fa-2x text-body"  />
                 {store.carShopping.length}
             </button>
 			<ul className={store.mostrarCarShop ? "visible" : "oculto"}>
@@ -20,7 +20,7 @@ const CarShopping = () => {
 					return (
 						<div className="listado">
 						<li key={index}>
-							{el} {" "}
+							{el.name} 
 							<li onClick={() => actions.eliminarCarShop(index)} className="far fa-trash-alt" />
 						</li> </div>
 					);
