@@ -25,8 +25,7 @@ export const NewCategory = () => {
             })
 
             const data = await response.json()
-
-            if (data.categoria.id) {
+            if (data.id) {
                 setCurrentCategoria(data)
                 sessionStorage.setItem('currentCategoria', JSON.stringify(data));
                 console.log(data);
@@ -50,12 +49,12 @@ export const NewCategory = () => {
 
 
     return (
-        <div className='container w-50 justify-content-center mt-5  mb-5'>
-            <div className='row'>
+        <div className='container-fluid w-75 justify-content-center mt-5  mb-5'>
+            <div className='row' style={{ height: '600px' }}>
                 <div className='col-12'>
                     <h1 className='fw-normal bg-secondary text-white py-3 mb-5 rounded-3 text-center'>Crear Categoría</h1>
                 </div>
-                <div className='col-12'>
+                <div className='col-6'>
                     <form onSubmit={handleSubmit}>
                         <div className="form-group mb-3">
                             <label htmlFor="nombre" className="form-label">Nombre de Categoria</label>
@@ -63,20 +62,29 @@ export const NewCategory = () => {
                         </div>
                         <div className="form-group mb-3">
                             <label htmlFor="descripcion" className="form-label">Descripcion</label>
-                            <textarea className="form-control" id="descripcion" rows="3"></textarea>
+                            <textarea className="form-control" id="descripcion" rows="3" onChange={e => setDescripcion(e.target.value)} value={descripcion} />
                         </div>
                         <div className="form-group mb-3">
                             <label htmlFor="img" className="form-label">Imagen:</label>
                             <input type="file" className="form-control" id="img" onChange={e => setImg(e.target.files[0])} />
                         </div>
-                        <div className='d-grid col-12'>
-                            <button className="btn btn-primary btn-sm gap-2">
-                                Register
-                            </button>
-                            <button type="button" className="btn btn-success m-2">Guardar</button>
+                        <div className='col-12'>
+                            <button className="btn btn-success m-2">Guardar</button>
                             <button type="button" className="btn btn-danger">Cancelar</button>
                         </div>
                     </form>
+                </div>
+                <div className='col-6'>
+                    <div className='border py-5 mb-4'>
+                    {
+                        !!currentCategoria &&
+                        (
+                            <div className="mx-auto" style={{ width: '480px' }}>
+                                <img src={currentCategoria?.img} alt="" width={450} height={350} className="rounded-cicle" />
+                            </div>
+                        )
+                    }
+                    </div>
                 </div>
             </div>
         </div >

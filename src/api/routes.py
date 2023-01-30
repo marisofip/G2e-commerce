@@ -3,6 +3,7 @@ This module takes care of starting the API Server, Loading the DB and Adding the
 """
 import os
 import datetime
+import cloudinary.uploader
 from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User, Product, Categoria, Pedido, Documento
 from api.utils import generate_sitemap, APIException
@@ -174,8 +175,14 @@ def create_categroriat():
    
     categoria.save()
 
-
-    return jsonify(categoria.serialize()), 201
+    ##data = categoria.serialize()
+    data = {
+        "id": categoria.id,
+        "nombre": categoria.nombre,
+        "descripcion": categoria.descripcion,
+        "img": categoria.img
+    }
+    return jsonify(data), 201
 
 
  ##crud pedidos
