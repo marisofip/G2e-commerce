@@ -1,145 +1,60 @@
 import React from 'react';
+import { useContext } from 'react';
+import { Context } from '../store/appContext';
+import { Link } from "react-router-dom";
 
 export const Categoria = () => {
+    const { store } = useContext(Context);
     return (
-        <div className='container'>
+        <div className='container-fluid w-75 justify-content-center mt-5  mb-5'>
             <div className='row'>
-                <hr />
-                <div className='col' style={{ textAlign: 'center' }}>
-                    <h1>Creacion de Categorias</h1>
+                <div className='col-12'>
+                    <h1 className='fw-normal bg-secondary text-white py-3 mb-5 rounded-3 text-center'>Categorías</h1>
                 </div>
-                <hr />
-                <div className='row'>
                     <div className='col'>
                         <table className="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th scope="col">ID</th>
-                                    <th scope="col">NOMBRE </th>
-                                    <th scope="col">TIPO</th>
-                                    {/* <th scope="col">Handle</th> */}
+                                    <th>ID</th>
+                                    <th>NOMBRE</th>
+                                    <th>DESCRIPCIÓN</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Tecnologia
-                                        <button className="border border-0 bg-transparent float-md-end">
-                                            <img src="https://img.icons8.com/material-sharp/1x/pencil--v2.png" />{" "}
-                                        </button>
-                                    </td>
-                                    <td>Electronica
-                                        <button className="border border-0 bg-transparent float-md-end">
-                                            <img src="https://img.icons8.com/material-sharp/1x/pencil--v2.png" />{" "}
-                                        </button>
-                                    </td>
-                                    {/* <td>@mdo
-                                        <button className="border border-0 bg-transparent float-md-end">
-                                            <img src="https://img.icons8.com/material-sharp/2x/pencil--v2.png" />{" "}
-                                        </button>
+                                {/* <tr>
+                                    <td>1</td>
+                                    <td>Tecnologia</td>
+                                    <td className="text-center">
+                                        <Link className="border border-0 bg-transparent" to="/detalle_pedido">
+                                            <i className="fa-solid fa-pencil fa-2xl text-body"/>
+                                        </Link>
                                     </td> */}
-
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Tecnologia
-                                        <button className="border border-0 bg-transparent float-md-end">
-                                            <img src="https://img.icons8.com/material-sharp/1x/pencil--v2.png" />{" "}
-                                        </button>
-                                    </td>
-                                    <td>Electronica
-                                        <button className="border border-0 bg-transparent float-md-end">
-                                            <img src="https://img.icons8.com/material-sharp/1x/pencil--v2.png" />{" "}
-                                        </button>
-                                    </td>
-                                    {/* <td>@mdo
-                                        <button className="border border-0 bg-transparent float-md-end">
-                                            <img src="https://img.icons8.com/material-sharp/2x/pencil--v2.png" />{" "}
-                                        </button>
-                                    </td> */}
-
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Tecnologia
-                                        <button className="border border-0 bg-transparent float-md-end">
-                                            <img src="https://img.icons8.com/material-sharp/1x/pencil--v2.png" />{" "}
-                                        </button>
-                                    </td>
-                                    <td>Electronica
-                                        <button className="border border-0 bg-transparent float-md-end">
-                                            <img src="https://img.icons8.com/material-sharp/1x/pencil--v2.png" />{" "}
-                                        </button>
-                                    </td>
-                                    {/* <td>@mdo
-                                        <button className="border border-0 bg-transparent float-md-end">
-                                            <img src="https://img.icons8.com/material-sharp/2x/pencil--v2.png" />{" "}
-                                        </button>
-                                    </td> */}
-
-                                </tr>
-                                <tr>
-                                    <th scope="row">4</th>
-                                    <td>Tecnologia
-                                        <button className="border border-0 bg-transparent float-md-end">
-                                            <img src="https://img.icons8.com/material-sharp/1x/pencil--v2.png" />{" "}
-                                        </button>
-                                    </td>
-                                    <td>Electronica
-                                        <button className="border border-0 bg-transparent float-md-end">
-                                            <img src="https://img.icons8.com/material-sharp/1x/pencil--v2.png" />{" "}
-                                        </button>
-                                    </td>
-                                    {/* <td>@mdo
-                                        <button className="border border-0 bg-transparent float-md-end">
-                                            <img src="https://img.icons8.com/material-sharp/2x/pencil--v2.png" />{" "}
-                                        </button>
-                                    </td> */}
-
-                                </tr>
-                                <tr>
-                                    <th scope="row">5</th>
-                                    <td>Tecnologia
-                                        <button className="border border-0 bg-transparent float-md-end">
-                                            <img src="https://img.icons8.com/material-sharp/1x/pencil--v2.png" />{" "}
-                                        </button>
-                                    </td>
-                                    <td>Electronica
-                                        <button className="border border-0 bg-transparent float-md-end">
-                                            <img src="https://img.icons8.com/material-sharp/1x/pencil--v2.png" />{" "}
-                                        </button>
-                                    </td>
-                                    {/* <td>@mdo
-                                        <button className="border border-0 bg-transparent float-md-end">
-                                            <img src="https://img.icons8.com/material-sharp/2x/pencil--v2.png" />{" "}
-                                        </button>
-                                    </td> */}
-
-                                </tr>
-                                <tr>
-                                    <th scope="row">6</th>
-                                    <td>Tecnologia
-                                        <button className="border border-0 bg-transparent float-md-end">
-                                            <img src="https://img.icons8.com/material-sharp/1x/pencil--v2.png" />{" "}
-                                        </button>
-                                    </td>
-                                    <td>Electronica
-                                        <button className="border border-0 bg-transparent float-md-end">
-                                            <img src="https://img.icons8.com/material-sharp/1x/pencil--v2.png" />{" "}
-                                        </button>
-                                    </td>
-                                    {/* <td>@mdo
-                                        <button className="border border-0 bg-transparent float-md-end">
-                                            <img src="https://img.icons8.com/material-sharp/2x/pencil--v2.png" />{" "}
-                                        </button>
-                                    </td> */}
-
-                                </tr>
+                                    {store.categorias !== null &&
+                                     store.categorias.length > 1 &&
+                                     store.categorias.map((categorias, index) => {
+                                        return (
+                                            <tr key={categorias.id}>
+                                                <td>{categorias.id}</td>
+                                                <td>{categorias.nombre}</td>
+                                                <td>{categorias.descripcion}</td>
+                                                <td>
+                                                <Link className="border border-0 bg-transparent" to="/createCategory">
+                                                    <i className="fa-solid fa-pencil fa-xl text-body"/>
+                                                </Link>
+                                                </td>
+                                            </tr>
+                                        );
+                                    })}
+                                {/* </tr> */}
                             </tbody>
                         </table>
-
+                        <div className="d-grid gap-4 d-md-flex justify-content-md-end">
+                            <button className="btn btn-secondary mt-2" type="button">
+                                Cancelar
+                            </button>
+                        </div>
                     </div>
-                </div>
             </div>
         </div>
     )

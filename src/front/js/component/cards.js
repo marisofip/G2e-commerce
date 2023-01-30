@@ -5,8 +5,6 @@ import { Context } from "../store/appContext";
 
 export const Card = () => {
     const { store } = useContext(Context);
-    
-   
     return (
       <>
         {store.categorias !== null &&
@@ -14,7 +12,7 @@ export const Card = () => {
           store.categorias.map((categorias, index) => {
             return (
 
-            <div className="card mx-auto my-1" style={{ width: '33rem' }}>
+            <div className="card mx-auto my-1" key={categorias.id} style={{ width: '33rem' }}>
                 <img src={ImageUrl} className="card-img-top" alt="..."/>
                 <div className="card-body">
                     <h5 className="card-title">{categorias.nombre}</h5>
@@ -22,9 +20,8 @@ export const Card = () => {
                     <Link to={"/detail_category/"+ categorias.id} className="btn btn-primary">Ir a categoría</Link>
                 </div>
             </div>
- );
-})}
-</>
-
-    );
-}
+          );
+        })}
+    </>
+  );
+};
