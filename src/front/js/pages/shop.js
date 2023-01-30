@@ -7,15 +7,16 @@ import { Context } from "../store/appContext";
 export const Shop = () => {
   return (
     <>
-      <h1 className="mt-5 pt-5" style={{ textAlign: "center" }}>
-        {" "}
-        CATEGORIAS
-      </h1>
-      <div className="container d-flex justify-content-center mt-5  mb-5">
-        <Card />
+      <div className="Container-fluid">
+        <h1 className="mt-5 pt-5" style={{ textAlign: "center" }}>
+          CATEGORIAS
+        </h1>
+        <div className="row justify-content-center mt-5  mb-5">
+          <Card />
         </div>
-      <div className="container justify-content-center ">
-        <DetailCard />
+        <div className="row justify-content-evenly">
+          <DetailCard />
+        </div>
       </div>
     </>
   );
