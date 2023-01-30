@@ -12,7 +12,7 @@ export const DetailCard = (item) => {
         store.products.length > 1 &&
         store.products.map((products, index) => {
           return (
-            <div className="card mb-3" key={products.id}>
+            <div className="card mb-3 me-2" key={products.id} style={{ width: '25rem' }}>
               <div className="row g-0">
                 <div className="col-md-4">
                   <img

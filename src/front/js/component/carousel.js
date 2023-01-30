@@ -15,21 +15,21 @@ export const Carousel = () => {
             <div className="carousel-inner">
                 <div className="carousel-item active">
                     <img src={ImageUrl} className="d-block w-100" alt="..." style={{ height: '700px' }}/>
-                    <div class="carousel-caption d-none d-md-block">
+                    <div className="carousel-caption d-none d-md-block">
                         <h1>20% Descuento en todas las consolas</h1>
                         <p></p>
                     </div>
                 </div>
                 <div className="carousel-item">
                     <img src={Image1qUrl} className="d-block w-100" alt="..." style={{ height: '700px' }}/>
-                    <div class="carousel-caption d-none d-md-block">
+                    <div className="carousel-caption d-none d-md-block">
                         <h1 className="text-body">Descubra la nueva línea de bolsos para notebooks</h1>
                         <p></p>
                     </div>
                 </div>
                 <div className="carousel-item">
                     <img src={Image2Url} className="d-block w-100" alt="..." style={{ height: '700px' }}/>
-                    <div class="carousel-caption d-none d-md-block">
+                    <div className="carousel-caption d-none d-md-block">
                         <h1>Todo en conectividad para el hogar y oficina</h1>
                         <p></p>
                     </div>
