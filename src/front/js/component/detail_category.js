@@ -18,13 +18,12 @@ export const DetailCategory = () => {
 
   return (
     <>
-<div>
+            <div>
               <h1
                 className="mt-5 pt-5"
                 style={{ textAlign: "center" }}
                >
-                CATEGORIAS
-              </h1>
+                CATEGORIA  </h1>
               </div>
 
       {store.productCategoria !== null &&
