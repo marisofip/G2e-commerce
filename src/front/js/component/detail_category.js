@@ -6,7 +6,7 @@ import { Context } from "../store/appContext";
 import { useParams, Link } from "react-router-dom";
 
 export const DetailCategory = () => {
-  const { id } = useParams();
+  const { id, nombre } = useParams();
   const { store, actions } = useContext(Context);
 
   useEffect(() => {
@@ -20,10 +20,10 @@ export const DetailCategory = () => {
     <>
             <div>
               <h1
-                className="mt-5 pt-5"
+                className="mt-2 pt-2 mb-5"
                 style={{ textAlign: "center" }}
                >
-                CATEGORIA  </h1>
+                Poductos  {nombre} </h1>
               </div>
 
       {store.productCategoria !== null &&
@@ -31,7 +31,7 @@ export const DetailCategory = () => {
         store.productCategoria.map((products, index) => {
           return (
             
-              <div className="container justify-content-center ">
+              <div className="container justify-content-center " key={products.id}>
                 <div className="card mb-3" key={products.id}>
                   <div className="row g-0">
                     <div className="col-md-4">
