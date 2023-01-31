@@ -13,8 +13,8 @@ const getState = ({ getStore, getActions, setStore }) => {
       isLogged: false,
       user: null,
     },
-    actions: {
-
+    actions: 
+    {
       loadDataFromProducts: async () => {
         try {
           const resp = await fetch(
@@ -107,8 +107,6 @@ const getState = ({ getStore, getActions, setStore }) => {
         const store = getStore();
         setStore({ mostrarCarShop: !store.mostrarCarShop });
       },
-    },
-
     getToken: () => {
       const tokenLocal = localStorage.getItem("token");
       const userLocal = JSON.parse(localStorage.getItem("user"));
@@ -160,6 +158,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         return false;
       }
     }
+  },
   };
 };
 

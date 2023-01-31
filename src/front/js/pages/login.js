@@ -3,11 +3,11 @@ import { Link, useNavigate, useLocation, Navigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 import Swal from "sweetalert2";
 
+
 export const Login = () => {
   const { store, actions } = useContext(Context);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const history = useNavigate("");
 
   // const validateForm = values => {
@@ -23,7 +23,6 @@ export const Login = () => {
 
   const handlerClick = async e => {
     e.preventDefault();
-
     const response = await actions.setLogin({ email: email, password: password });
     console.log(response);
     if (!response.ok) {
