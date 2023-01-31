@@ -123,7 +123,7 @@ def create_product():
     nombre = request.json.get('nombre')
     descripcion = request.json.get('descripcion')
     precio = request.json.get('precio')
-    categoria = request.json.get('categoria')
+    categoria_id = request.json.get('categoria')
 
     if not nombre: return jsonify({"message": "Nombre is required"}), 400
     if not precio: return jsonify({"message": "Precio is required"}), 400
@@ -136,13 +136,38 @@ def create_product():
     product.nombre = nombre
     product.descripcion = descripcion
     product.precio = precio
-    product.categoria_id = categoria
+    product.categoria_id = categoria_id
 
     product.save()
 
 
     return jsonify(product.serialize()), 201
 
+    
+@api.route('/edit-product/<int:products_id>', methods=['PUT'])
+def edit_product(products_id):
+    
+    nombre = request.json.get('nombre')
+    descripcion = request.json.get('descripcion')
+    precio = request.json.get('precio')
+    categoria = request.json.get('categoria')
+
+    products = Product.query.get(products_id)
+
+    products.nombre = nombre
+    products.descripcion = descripcion
+    products.precio = precio
+    products.categoria_id = categoria
+    products.update()
+    return jsonify(products.serialize()), 201
+
+@api.route('/delete-product/<int:products_id>', methods=['DELETE'])
+def delete_product(products_id):
+
+    products = Product.query.get(products_id)
+    products.delete()
+
+    return jsonify({ "message": "Product Deleted" }), 200
 
 
       ##crud categorias
@@ -158,6 +183,7 @@ def create_categroriat():
     ## Cambiamos para recibir un form en vez de un json
     ##nombre = request.json.get('nombre')
     ##descripcion = request.json.get('descripcion')
+    ## hay que revisarlo porque ahora al agregar el producto no le carga categoiria *al menos al postman*
     nombre = request.form['nombre']
     descripcion = request.form['descripcion']
     img = None
@@ -189,6 +215,33 @@ def create_categroriat():
         "img": categoria.img
     }
     return jsonify(data), 201
+
+  
+@api.route('/edit-categoria/<int:categoria_id>', methods=['PUT'])
+def edit_categoria(categoria_id):
+    
+    nombre = request.json.get('nombre')
+    descripcion = request.json.get('descripcion')
+  
+
+    categoria = Categoria.query.get(categoria_id)
+
+    categoria.nombre = nombre
+    categoria.descripcion = descripcion
+   
+    categoria.update()
+
+    return jsonify(categoria.serialize()), 201
+
+@api.route('/delete-categoria/<int:categoria_id>', methods=['DELETE'])
+def delete_categoria(categoria_id):
+
+    categoria = Categoria.query.get(categoria_id)
+    categoria.delete()
+
+    return jsonify({ "message": "Categoria Deleted" }), 200
+
+
 
 
  ##crud pedidos

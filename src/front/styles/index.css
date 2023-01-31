@@ -2,10 +2,18 @@
     position: absolute;
     margin-top: 15px;
     display: block;
-    background-color: black;
+  color:black;
     
     
 }
 .oculto{
     display: none;
+}
+.listado {
+    display: flex;
+    margin-left: 5px;
+   justify-content: space-between;
+}
+#carShopping{
+  border: none;
 }
