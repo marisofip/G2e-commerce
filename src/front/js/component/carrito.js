@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 //import { FaTrashAlt } from 'react-icons/fa';
@@ -10,21 +11,24 @@ const CarShopping = () => {
 	return (
 	
 		<div className="carShopping">
-            <button id="carShopping" className="btn btn-outline-secondary mt-3">
-                <i className="fa-solid fa-cart-shopping fa-2x text-body"  onClick={() => actions.setMostrarCarShop()}/>
-                {store.carShopping.length}
+            <button id="carShopping" className="btn btn-outline-secondary mt-2 ms-2" onClick={() => actions.setMostrarCarShop()}>
+                <i className="fa-solid fa-cart-shopping fa-2x text-body"/>
+                {" "}{store.carShopping.length}
             </button>
-			<ul className={store.mostrarCarShop ? " visible"+" list-group" : "oculto" +" list-group"}>
+			<ul className={store.mostrarCarShop ? "visible"+" list-group" : "oculto" +" list-group"}>
 				{store.carShopping.map((el, index) => {
 					return (
-						<div className="listado" key={index}>
-							<li key={index} className="list-group-item p-2">
+						// <div className="listado" key={index}>
+							<li key={index} className="list-group-item">
 								{el.nombre+" $"+el.precio+" Cantidad: "+el.cantidad} 
 								<li onClick={() => actions.eliminarCarShop(index)} className="far fa-trash-alt ms-1 p-1" />
 							</li> 
-						</div>
+						// </div>
 					);
 				})}
+				<li className="list-group-item">
+					<Link className="nav-link btn btn-outline-info" onClick={() => actions.setMostrarCarShop()} to="/shopping-cart">Ir al carro</Link>
+				</li>
 			</ul>
 			</div>
 		

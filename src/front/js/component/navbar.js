@@ -91,10 +91,10 @@ export const Navbar = () => {
             </button>
           </form>
         </div>
-        <div className="nav-item ms-2 ms-lg-0">
-              <Link className="nav-link" to="/shopping-cart">
+        <div className="nav-item ms-5 mx-2 ms-lg-0">
+              {/* <Link className="nav-link" to=""> */}
               <CarShopping/>
-              </Link>
+              {/* </Link> */}
         </div>
       </div>
     </nav>
