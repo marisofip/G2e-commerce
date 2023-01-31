@@ -19,7 +19,7 @@ export const EditCategory = () => {
     
   
 
-        <div className='container-fluid w-75 justify-content-center mt-5  mb-5'>
+        <div className='container-fluid w-50 justify-content-center mt-5  mb-5'>
             <div className='row' style={{ height: '600px' }}>
                 <div className='col-12'>
                     <h1 className='fw-normal bg-secondary text-white py-3 mb-5 rounded-3 text-center'>Editar Categoría</h1>
