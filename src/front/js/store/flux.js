@@ -7,6 +7,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       categorias: {},
       productDetail: {},
       productCategoria: {},
+      editCategoria:{},
       carShopping: [],
       mostrarCarShop: false,
       isLogged: false,
@@ -55,6 +56,20 @@ const getState = ({ getStore, getActions, setStore }) => {
           );
           const data = await resp.json();
           setStore({ productDetail: data });
+        } catch (e) {
+          console.error(e);
+        }
+      },
+      getEditCategoria: async (id) => {
+        try {
+          console.log("id: " + id);
+          const resp = await fetch(
+            process.env.BACKEND_URL + "/api/detail-categoria/" +
+            id
+          );
+          const data = await resp.json();
+          setStore({ editCategoria: data });
+          console.log(data)
         } catch (e) {
           console.error(e);
         }

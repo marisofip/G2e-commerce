@@ -39,7 +39,7 @@ export const Categoria = () => {
                                                 <td>{categorias.nombre}</td>
                                                 <td>{categorias.descripcion}</td>
                                                 <td className='text-center'>
-                                                <Link className="border border-0 bg-transparent" to="/createCategory">
+                                                <Link className="border border-0 bg-transparent" to={"/edit-categoria/" + categorias.id}>
                                                     <i className="fa-solid fa-pencil fa-xl text-body"/>
                                                 </Link>
                                                 </td>

@@ -18,13 +18,14 @@ import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { Product } from "./pages/product";
 import { Create } from "./pages/create_product";
-import { Modify } from "./pages/edit_product";
 import { Shipping } from "./pages/shipping";
 import { RegistroUsuario } from "./pages/registro_usuario";
 import { Users } from "./pages/users";
 import { EditUser } from "./pages/edit_user";
 import { Pedidos } from "./pages/pedidos";
 import { DetailCategory } from "./component/detail_category";
+import { EditCategory } from "./pages/editCategory";
+import { EditProduct } from "./pages/editProducto1";
 
 //create your first component
 const Layout = () => {
@@ -49,7 +50,7 @@ const Layout = () => {
             <Route element={<Shop />} path="/shop" />
             <Route element={<Product />} path="/products" />
             <Route element={<Create />} path="/create_product" />
-            <Route element={<Modify />} path="/edit_product" />
+            <Route element={<EditProduct />} path="/edit_product/:id" />
             <Route element={<ShoppingCart />} path="/shopping-cart" />
             <Route element={<Shipping />} path="/shipping" />
             <Route element={<Detail />} path="/detail_product/:id" />
@@ -57,6 +58,7 @@ const Layout = () => {
             <Route element={<Payments />} path="/payment" />
             <Route element={<Categoria />} path="/categoryList" />
             <Route element={<NewCategory />} path="/createCategory" />
+            <Route element={<EditCategory />} path="/edit-categoria/:id" />
 
             <Route
               path="*"

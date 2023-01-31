@@ -95,6 +95,3 @@ export const Detail = props  => {
          );
        
 };
-Detail.propTypes = {
-  match: PropTypes.object
-};

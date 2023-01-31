@@ -232,7 +232,15 @@ def edit_categoria(categoria_id):
     categoria.update()
 
     return jsonify(categoria.serialize()), 201
+@api.route('/detail-categoria/<int:categoria_id>', methods=['GET'])
+def detail_categoria(categoria_id):
 
+    categoria = Categoria.query.get(categoria_id)
+    categoria= categoria.serialize()
+
+    return jsonify(categoria), 200
+
+   
 @api.route('/delete-categoria/<int:categoria_id>', methods=['DELETE'])
 def delete_categoria(categoria_id):
 

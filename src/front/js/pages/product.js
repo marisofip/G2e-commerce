@@ -12,9 +12,9 @@ export const Product = () => {
           className="fw-normal p-0 shadow-none p-5 mb-5 bg-light rounded-4 border border-dark"
           style={{ textAlign: "center", boxShadow: "0.2" }}
         >
-          <form class="d-flex" role="search">
+          <form className="d-flex" role="search">
             <input
-              class="form-control me-2"
+              className="form-control me-2"
               type="search"
               placeholder="Buscar Productos"
               aria-label="Search"
@@ -22,7 +22,7 @@ export const Product = () => {
             <img src="https://img.icons8.com/material-outlined/2x/search.png" />{" "}
           </form>
         </h1>
-        <table class="table table-bordered">
+        <table className="table table-bordered">
           <thead>
             <tr>
               <th scope="col">ID</th>
@@ -45,7 +45,7 @@ export const Product = () => {
             
               <Link
                 className="border border-0 bg-transparent float-md-end"
-                to="/edit_product"
+                to={"/edit_product/" + products.id }
               >
                 <i className="fa-solid fa-pencil fa-xl text-body"/>
               </Link>
