@@ -76,7 +76,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       getDetailCategory: async (id) => {
         try {
-          console.log("id: " + id);
+          //console.log("id: " + id);
           const resp = await fetch(
             process.env.BACKEND_URL + "/api/products/categoria/" +
             id
