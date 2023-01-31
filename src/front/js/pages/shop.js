@@ -8,17 +8,17 @@ export const Shop = () => {
   return (
     <>
       <div className="Container-fluid">
-        <h1 className="mt-5 pt-5" style={{ textAlign: "center" }}>
+        <h1 className="mt-5" style={{ textAlign: "center" }}>
           CATEGORIAS
         </h1>
         <div className="row justify-content-center mt-5  mb-5">
           <Card />
         </div>
         <hr/>
-        <h1 className="mt-5 pt-5" style={{ textAlign: "center" }}>
+        <h1 className="mt-5" style={{ textAlign: "center" }}>
           PRODUCTOS
         </h1>
-        <div className="row justify-content-evenly">
+        <div className="row justify-content-evenly mt-5 mb-5">
           <DetailCard />
         </div>
       </div>

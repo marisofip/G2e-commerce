@@ -87,10 +87,8 @@ export const Detail = props  => {
                   Productos Similares
                 </h3>
               </div>
-              <div className="row">
-                <div className="col-sm-4">
+              <div className="row mt-5 mb-5">
                   <DetailCard/>
-                </div>
               </div>
             </div>
          

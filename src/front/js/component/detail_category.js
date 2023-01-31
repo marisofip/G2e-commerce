@@ -23,7 +23,7 @@ export const DetailCategory = () => {
                 className="mt-2 pt-2 mb-5"
                 style={{ textAlign: "center" }}
                >
-                Poductos  {nombre} </h1>
+                Categoría  {nombre} </h1>
               </div>
 
       {store.productCategoria !== null &&
