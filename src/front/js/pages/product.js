@@ -9,18 +9,10 @@ export const Product = () => {
     <>
       <div className="container  justify-content-center mt-5  mb-5">
         <h1
-          className="fw-normal p-0 shadow-none p-5 mb-5 bg-light rounded-4 border border-dark"
+          h1 className='fw-normal bg-secondary text-white py-3 mb-5 rounded-3 text-center'
           style={{ textAlign: "center", boxShadow: "0.2" }}
         >
-          <form className="d-flex" role="search">
-            <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Buscar Productos"
-              aria-label="Search"
-            ></input>{" "}
-            <img src="https://img.icons8.com/material-outlined/2x/search.png" />{" "}
-          </form>
+         Productos
         </h1>
         <table className="table table-bordered">
           <thead>
