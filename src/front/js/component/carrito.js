@@ -15,7 +15,7 @@ const CarShopping = () => {
                 <i className="fa-solid fa-cart-shopping fa-2x text-body"  onClick={() => actions.setMostrarCarShop()}/>
                 {store.carShopping.length}
             </button>
-			<ul className={store.mostrarCarShop ? " visible"+" list-group" : "oculto" +" list-group"}>
+			<ul className={store.mostrarCarShop ? "visible"+" list-group" : "oculto" +" list-group"}>
 				{store.carShopping.map((el, index) => {
 					return (
 						// <div className="listado" key={index}>
@@ -26,7 +26,9 @@ const CarShopping = () => {
 						// </div>
 					);
 				})}
-				<li className="list-group-item"><Link className="nav-link btn btn-outline-info" to="/shopping-cart">Ir al carro</Link></li>
+				<li className="list-group-item">
+					<Link className="nav-link btn btn-outline-info" onClick={() => actions.setMostrarCarShop()} to="/shopping-cart">Ir al carro</Link>
+				</li>
 			</ul>
 			</div>
 		
