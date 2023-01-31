@@ -25,7 +25,7 @@ export const Login = () => {
     e.preventDefault();
 
     const response = await actions.setLogin({ email: email, password: password });
-
+    console.log(response);
     if (!response.ok) {
       Swal.fire({
         tittle: "Email o Contraseña incorrecta",
@@ -44,6 +44,7 @@ export const Login = () => {
         Navigate(path ? path : "/")
       });
     }
+
   };
 
   return (

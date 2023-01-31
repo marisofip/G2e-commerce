@@ -7,7 +7,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       categorias: {},
       productDetail: {},
       productCategoria: {},
-      editCategoria:{},
+      editCategoria: {},
       carShopping: [],
       mostrarCarShop: false,
       isLogged: false,
@@ -88,10 +88,10 @@ const getState = ({ getStore, getActions, setStore }) => {
         }
       },
 
-      agregarCarShop: (id,nombre,precio,cantidad,img) => {
+      agregarCarShop: (id, nombre, precio, cantidad, img) => {
         const store = getStore();
         //setStore({ carShopping: [...store.carshopping, store.characters[id - 1]] });
-        setStore(store.carShopping.push({id,nombre,precio,cantidad,img}));
+        setStore(store.carShopping.push({ id, nombre, precio, cantidad, img }));
       },
       eliminarCarShop: (index) => {
         const store = getStore();
@@ -121,7 +121,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       console.log("->", tokenLocal);
       console.log("->", JSON.stringify(userLocal));
     },
-    setLogin: async user => {
+    setLogin: async (email, password) => {
       const response = await fetch(process.env.BACKEND_URL + "/api/login", {
         method: "POST",
         body: JSON.stringify(user),
@@ -146,20 +146,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       return true
     },
-    // setRegister: async () => {
-    //   const response = await fetch(process.env.BACKEND_URL + "/api/registro_usuario", {
-    //     method: "POST",
-    //     body: JSON.stringify(request),
-    //     headers: { "Content-type": "aplications/json" }
+    setRegister: async () => {
+      const response = await fetch(process.env.BACKEND_URL + "/api/registro_usuario", {
+        method: "POST",
+        body: JSON.stringify(request),
+        headers: { "Content-type": "aplications/json" }
 
-    //   });
-    //   if (response.ok) {
-    //     const json = await response.json();
-    //     return true;
-    //   } else {
-    //     return false;
-    //   }
-    // }
+      });
+      if (response.ok) {
+        const json = await response.json();
+        return true;
+      } else {
+        return false;
+      }
+    }
   };
 };
 
