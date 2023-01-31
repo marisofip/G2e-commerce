@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { TotalCompra } from "../component/totalcompra";
 
 export const Shipping = () => {
@@ -137,9 +138,9 @@ export const Shipping = () => {
         <hr />
 
         <div className="d-grid gap-4 d-md-flex justify-content-md-start pt-5">
-          <button className="btn btn-success mt-5 " type="button">
+          <Link className="btn btn-success mt-5 " type="button" to="/payment">
             Siguiente
-          </button>
+          </Link>
           <button className="btn btn-secondary mt-5 " type="button">
             Cancelar
           </button>
