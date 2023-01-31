@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/home.css";
 import { TotalCompra } from "../component/totalcompra";
+import { Link } from "react-router-dom";
 
 export const ShoppingCart = () => {
 	const { store, actions } = useContext(Context);
@@ -24,6 +25,9 @@ export const ShoppingCart = () => {
 										<h5 className="card-title">{carro.nombre}</h5>
 										<p className="card-text text-end">Cantidad : {carro.cantidad}</p>
 										<p className="card-text text-end">Precio : ${carro.precio}</p>
+										<p className="card-text text-end">
+											<Link onClick={() => actions.eliminarCarShop(index)} className="far fa-trash-alt fa-lg link-danger" to=""></Link>
+										</p>
 									</div>
 								</div>
 							</div>
@@ -37,11 +41,11 @@ export const ShoppingCart = () => {
 				</div>
 			</div>
 			<div className="d-grid gap-3 d-md-flex justify-content-md-end">
-				<button className="btn btn-success mt-2" type="button">
-				Siguiente
-				</button>
+				<Link className="btn btn-success mt-2" type="button" to="/shipping">
+					Siguiente
+				</Link>
 				<button className="btn btn-secondary mt-2" type="button">
-				Cancelar
+					Cancelar
 				</button>
           	</div>
 		</div>
