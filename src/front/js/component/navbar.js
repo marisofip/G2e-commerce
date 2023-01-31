@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logoImageUrl from "../../img/logo.png";
+//import logoG2  from "../../img/logoG2.png";
 import CarShopping from "./carrito";
 import { Shop } from "../pages/shop";
 
