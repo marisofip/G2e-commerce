@@ -6,7 +6,7 @@ export const Payments = () => {
             <div className='row'>
                 <div className='col'>
                     <hr />
-                    <h1 className='tittlePayment' style={{ textAlign: 'center' }}>
+                    <h1 className='tittlePayment fw-normal bg-secondary text-white py-3 mb-5 rounded-3 text-center' style={{ textAlign: 'center' }}>
                         Pago
                     </h1>
                 </div>

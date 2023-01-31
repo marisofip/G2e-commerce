@@ -7,7 +7,7 @@ export const Shipping = () => {
     <>
       <div className="container  justify-content-center mt-5  mb-5">
         <h1
-          className="fw-normal  p-0 shadow-none p-3 mb-5 bg-light rounded-4 border border-dark"
+          className="fw-normal bg-secondary text-white py-3 mb-5 rounded-3 text-center"
           style={{ textAlign: "center", boxShadow: "0.2" }}
         >
           Datos de Despacho
