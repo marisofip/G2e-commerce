@@ -73,10 +73,10 @@ const getState = ({ getStore, getActions, setStore }) => {
         }
       },
 
-      agregarCarShop: (id) => {
+      agregarCarShop: (id,nombre,precio,cantidad,img) => {
         const store = getStore();
         //setStore({ carShopping: [...store.carshopping, store.characters[id - 1]] });
-        setStore(store.carShopping.push(id));
+        setStore(store.carShopping.push({id,nombre,precio,cantidad,img}));
       },
       eliminarCarShop: (index) => {
         const store = getStore();

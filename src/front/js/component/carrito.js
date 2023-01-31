@@ -14,15 +14,15 @@ const CarShopping = () => {
                 <i className="fa-solid fa-cart-shopping fa-2x text-body"  />
                 {store.carShopping.length}
             </button>
-			<ul className={store.mostrarCarShop ? "visible" : "oculto"}>
+			<ul className={store.mostrarCarShop ? " visible"+" list-group" : "oculto" +" list-group"}>
 				{store.carShopping.map((el, index) => {
-					console.log(index)
 					return (
-						<div className="listado">
-						<li key={index}>
-							{el.name} 
-							<li onClick={() => actions.eliminarCarShop(index)} className="far fa-trash-alt" />
-						</li> </div>
+						<div className="listado" key={index}>
+							<li key={index} className="list-group-item p-2">
+								{el.nombre+" $"+el.precio+" Cantidad: "+el.cantidad} 
+								<li onClick={() => actions.eliminarCarShop(index)} className="far fa-trash-alt ms-1 p-1" />
+							</li> 
+						</div>
 					);
 				})}
 			</ul>

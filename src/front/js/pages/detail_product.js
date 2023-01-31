@@ -48,7 +48,7 @@ export const Detail = props  => {
                       <h2 className="priceProduct">$ {product.precio}</h2>
                     </div>
                     <div className="col-6">
-                      <select
+                      <select id="select"
                         className="form-select"
                         aria-label="Default select example"
                       >                       
@@ -72,7 +72,7 @@ export const Detail = props  => {
                         type="button"
                         className="btn btn-success btn-md"
                         onClick={() => {
-                          actions.agregarCarShop(product.nombre);
+                          actions.agregarCarShop(product.id,product.nombre,product.precio,select.value,product.img);
                         }}
                       >
                         Agregar
