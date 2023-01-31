@@ -1,7 +1,10 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { Context } from '../store/appContext';
+
 
 export const Product = () => {
+  const { store } = useContext(Context);
   return (
     <>
       <div className="container  justify-content-center mt-5  mb-5">
@@ -28,51 +31,29 @@ export const Product = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Producto 1</td>
-              <td>
-                {" "}
-                20{" "}
-                <Link
-                  className="border border-0 bg-transparent float-md-end"
-                  to="/edit_product"
-                >
-                  {" "}
-                  <img src="https://img.icons8.com/material-sharp/2x/pencil--v2.png" />{" "}
-                </Link>
-              </td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Produto 2</td>
-              <td>
-                {" "}
-                100{" "}
-                <Link
-                  className="border border-0 bg-transparent float-md-end"
-                  to="/edit_product"
-                >
-                  {" "}
-                  <img src="https://img.icons8.com/material-sharp/2x/pencil--v2.png" />{" "}
-                </Link>
-              </td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Produto 3</td>
-              <td>
-                {" "}
-                50{" "}
-                <Link
-                  className="border border-0 bg-transparent float-md-end"
-                  to="/edit_product"
-                >
-                  {" "}
-                  <img src="https://img.icons8.com/material-sharp/2x/pencil--v2.png" />{" "}
-                </Link>
-              </td>
-            </tr>
+          {         
+          store.products !== null &&
+        store.products.length > 1 &&
+        store.products.map((products, index) => {
+             return (
+            <tr key={products.id}>
+            <td>{products.id}</td>
+            <td>{products.nombre}</td>
+            <td>
+              {" "}
+              20{" "}
+            
+              <Link
+                className="border border-0 bg-transparent float-md-end"
+                to="/edit_product"
+              >
+                <i className="fa-solid fa-pencil fa-xl text-body"/>
+              </Link>
+            </td>
+          </tr>
+            );
+             })}
+                                  
           </tbody>
         </table>
 
