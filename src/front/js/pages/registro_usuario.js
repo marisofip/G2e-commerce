@@ -1,7 +1,85 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
+import { validate } from "schema-utils";
+import Swal from "sweetalert2";
+
+
+
 
 export const RegistroUsuario = () => {
   const { actions } = useContext("")
+  const [error, setError] = useState({});
+
+  const inicializador = {
+    name: "",
+    apellidoPaterno: "",
+    email: "",
+    fono: "",
+    rut: "",
+    direccion: "",
+    comuna: "",
+    region: "",
+    ciudad: "",
+    codigopostal: "",
+    email: "",
+    password: "",
+  };
+
+  const [value, setValue] = useState(inicializador);
+
+  const navigate = useNavigate();
+
+  const handlerClick = async e => {
+    e.preventDefault();
+
+    if (validate()) {
+      const isOk = await actions.setRegister({
+        name: value.name,
+        apellidoPaterno: value.apellidoPaterno,
+        fono: value.fono,
+        rut: value.rut,
+        direccion: value.direccion,
+        comuna: value.comuna,
+        ciudad: value.ciudad,
+        region: value.region,
+        codigopostal: value.codigopostal,
+        email: value.email,
+        password: value.password,
+      });
+      if (!isOk) {
+        Swal.fire({
+          title: "Hubo un Error",
+          texte: "Reintente",
+          incon: "error",
+          confirmButtonText: "Continuar"
+        }).then(() => {
+          navigate("/");
+        })
+      } else {
+        Swal.fire({
+          title: "Usuario Registrado",
+          icon: "success",
+          confirmButtonText: "Continuar"
+        }).then(() => {
+          navigate("/")
+        });
+      }
+    }
+  };
+
+  // const validate = (validarCampo = value) => {
+  //   const temp = { ...error };
+
+  //   if ("name" in validarCampo)
+  //     temp.name = 
+  //       validarCampo.name && validarCampo.name.trim().length > 0 ? "Nombre es Obligatorio":
+  //   if ("apellidoPaterno" in validarCampo)
+  //     temp.apellidoPaterno =
+  //       validarCampo.apellidoPaterno && validarCampo.apellidoPaterno.trim().length > 0 ? "Apellido es Obligatorio"
+  // }
+
+
+
   return (
     <>
       <div className="container w-50 justify-content-center mt-5  mb-5">
@@ -58,11 +136,11 @@ export const RegistroUsuario = () => {
             <label htmlFor="fono">Número de teléfono</label>
           </div>
           <div className="form-floating col-md-6">
-            <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" />
+            <input type="email" className="form-control" id="email" placeholder="name@example.com" />
             <label htmlFor="floatingInput">Correo "name@example.com"</label>
           </div>
           <div className="form-floating col-md-6">
-            <input type="password" className="form-control" id="floatingPassword" placeholder="Password" />
+            <input type="password" className="form-control" id="password" placeholder="Password" />
             <label htmlFor="floatingPassword">Contraseña</label>
           </div>
           <div className="d-grid gap-4 d-md-flex justify-content-md-end pt-2">
