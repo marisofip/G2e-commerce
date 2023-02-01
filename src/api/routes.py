@@ -95,7 +95,7 @@ def register():
 
         return jsonify(data), 201
 
-    ##crud productos
+##crud productos
 @api.route('/products', methods=['GET'])
 def get_products():
     products = Product.query.all()
@@ -138,7 +138,10 @@ def create_product():
     if foundProduct: return jsonify({"message": "Product already exists"}), 400
 
     product = Product()
-
+    print("Los print")
+    print(categoria_id)
+    print(request.form['categoria_id'])
+    print(resp_img['secure_url'])
     product.nombre = nombre
     product.descripcion = descripcion
     product.precio = precio
