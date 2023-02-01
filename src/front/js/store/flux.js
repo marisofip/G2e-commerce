@@ -13,7 +13,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       isLogged: false,
       user: null,
     },
-    actions: 
+    actions:
     {
       loadDataFromProducts: async () => {
         try {
@@ -107,58 +107,58 @@ const getState = ({ getStore, getActions, setStore }) => {
         const store = getStore();
         setStore({ mostrarCarShop: !store.mostrarCarShop });
       },
-    getToken: () => {
-      const tokenLocal = localStorage.getItem("token");
-      const userLocal = JSON.parse(localStorage.getItem("user"));
-      setStore({
-        user: {
-          token: tokenLocal,
-          user: userLocal
-        }
-      });
-      console.log("->", tokenLocal);
-      console.log("->", JSON.stringify(userLocal));
-    },
-    setLogin: async (email, password) => {
-      const response = await fetch(process.env.BACKEND_URL + "/api/login", {
-        method: "POST",
-        body: JSON.stringify(user),
-        headers: { "Content-type": "application/json" }
-      });
-      if (response.ok) {
-        const json = await response.json();
-        setStore({ user: json, isLogged: true });
-        if (typeof Storage !== undefined) {
-          localStorage.setItem("token", json.token);
-          localStorage.setItem("token", JSON.stringify(json.user));
-        }
-        return response;
+      getToken: () => {
+        const tokenLocal = localStorage.getItem("token");
+        const userLocal = JSON.parse(localStorage.getItem("user"));
+        setStore({
+          user: {
+            token: tokenLocal,
+            user: userLocal
+          }
+        });
+        console.log("->", tokenLocal);
+        console.log("->", JSON.stringify(userLocal));
+      },
+      setLogin: async (email, password) => {
+        const response = await fetch(process.env.BACKEND_URL + "/api/login", {
+          method: "POST",
+          body: JSON.stringify(email, password),
+          headers: { "Content-type": "application/json" }
+        });
+        if (response.ok) {
+          const json = await response.json();
+          setStore({ user: json, isLogged: true });
+          if (typeof Storage !== undefined) {
+            localStorage.setItem("token", json.token);
+            localStorage.setItem("token", JSON.stringify(json.user));
+          }
+          return response;
 
-      } else {
+        } else {
+          await setStore({ user: null, isLogged: false })
+        }
+      },
+
+      setLogout: async () => {
         await setStore({ user: null, isLogged: false })
+
+        return true
+      },
+      setRegister: async () => {
+        const response = await fetch(process.env.BACKEND_URL + "/api/registro_usuario", {
+          method: "POST",
+          body: JSON.stringify(request),
+          headers: { "Content-type": "aplications/json" }
+
+        });
+        if (response.ok) {
+          const json = await response.json();
+          return true;
+        } else {
+          return false;
+        }
       }
     },
-
-    setLogout: async () => {
-      await setStore({ user: null, isLogged: false })
-
-      return true
-    },
-    setRegister: async () => {
-      const response = await fetch(process.env.BACKEND_URL + "/api/registro_usuario", {
-        method: "POST",
-        body: JSON.stringify(request),
-        headers: { "Content-type": "aplications/json" }
-
-      });
-      if (response.ok) {
-        const json = await response.json();
-        return true;
-      } else {
-        return false;
-      }
-    }
-  },
   };
 };
 

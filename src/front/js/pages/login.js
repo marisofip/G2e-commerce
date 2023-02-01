@@ -1,14 +1,13 @@
 import React, { useContext, useState } from "react";
-import { Link, useNavigate, useLocation, Navigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Context } from "../store/appContext";
 import Swal from "sweetalert2";
-
 
 export const Login = () => {
   const { store, actions } = useContext(Context);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const history = useNavigate("");
+  const navigate = useNavigate();
 
   // const validateForm = values => {
   //   const error = {};
@@ -23,8 +22,9 @@ export const Login = () => {
 
   const handlerClick = async e => {
     e.preventDefault();
+
     const response = await actions.setLogin({ email: email, password: password });
-    console.log(response);
+    // console.log("->"(response));
     if (!response.ok) {
       Swal.fire({
         tittle: "Email o Contraseña incorrecta",
@@ -32,7 +32,7 @@ export const Login = () => {
         icon: "error",
         confirmButtonText: "Continuar"
       }).then(() => {
-        Navigate("/")
+        navigate("/")
       });
     } else {
       Swal.fire({
@@ -40,7 +40,7 @@ export const Login = () => {
         icon: 'success',
         confirmButtonText: 'Continuar',
       }).then(() => {
-        Navigate(path ? path : "/")
+        navigate("/")
       });
     }
 
