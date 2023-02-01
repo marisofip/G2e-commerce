@@ -76,7 +76,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       getDetailCategory: async (id) => {
         try {
-          console.log("id: " + id);
+          //console.log("id: " + id);
           const resp = await fetch(
             process.env.BACKEND_URL + "/api/products/categoria/" +
             id
@@ -90,9 +90,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       agregarCarShop: (id, nombre, precio, cantidad, img) => {
         const store = getStore();
-        //setStore({ carShopping: [...store.carshopping, store.characters[id - 1]] });
+        let index;
+        if(store.carShopping.find( arrobj => arrobj.id === id )) {
+          console.log(`${id} ya existe en el array`);
+          console.log(parseFloat(store.carShopping.find( arrobj => arrobj.id === id ).cantidad)+parseFloat(cantidad))
+          cantidad=parseFloat(store.carShopping.find( arrobj => arrobj.id === id ).cantidad)+parseFloat(cantidad)
+          index=store.carShopping.findIndex(obj => obj.id === id)
+          const eliminar = store.carShopping.filter((el, i) => {
+            return index !== i;
+          });
+          setStore({ carShopping: eliminar });          
+        } 
         setStore(store.carShopping.push({ id, nombre, precio, cantidad, img }));
       },
+      
       eliminarCarShop: (index) => {
         const store = getStore();
 
