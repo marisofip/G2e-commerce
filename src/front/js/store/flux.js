@@ -60,7 +60,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           console.error(e);
         }
       },
-      getEditCategoria: async (id) => {
+            getEditCategoria: async (id) => {
         try {
           console.log("id: " + id);
           const resp = await fetch(

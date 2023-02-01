@@ -31,8 +31,8 @@ const {id} = useParams();
                             <input type="text" className="form-control" id="nombre" placeholder={product.nombre}  />
                         </div>
                         <div className="form-group mb-3">
-                            <label htmlFor="nombre" className="form-label">Precio $</label>
-                            <input type="text" className="form-control" id="nombre" placeholder={product.precio}  />
+                            <label htmlFor="precio" className="form-label">Precio $</label>
+                            <input type="number" className="form-control" id="precio" placeholder={product.precio}  />
                         </div>
                         <div className="form-group mb-3">
                             <label htmlFor="descripcion" className="form-label"> Descripcion</label>
