@@ -30,7 +30,6 @@ export const Create = () => {
           const response = await fetch(`${process.env.BACKEND_URL}/api/create-product`, {
               method: 'POST',
               body: formData,
-              headers: { "Content-type": "application/json" }
           })
 
           const data = await response.json()
