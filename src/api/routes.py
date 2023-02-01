@@ -120,13 +120,19 @@ def get_product_categoria_id(categoria_id):
 @api.route('/create-product', methods=['POST'])
 def create_product():
     
-    nombre = request.json.get('nombre')
-    descripcion = request.json.get('descripcion')
-    precio = request.json.get('precio')
-    categoria_id = request.json.get('categoria')
+    nombre = request.form['nombre']
+    descripcion = request.form['descripcion']
+    precio = request.form['precio']
+    categoria_id = request.form['categoria_id']
+    img = None
+    resp_img = None
+    if 'img' in request.files:
+        img = request.files['img'] 
 
     if not nombre: return jsonify({"message": "Nombre is required"}), 400
     if not precio: return jsonify({"message": "Precio is required"}), 400
+    if img:
+        resp_img = cloudinary.uploader.upload(img, folder="imgs")
 
     foundProduct = Product.query.filter_by(nombre=nombre).first()
     if foundProduct: return jsonify({"message": "Product already exists"}), 400
@@ -137,11 +143,20 @@ def create_product():
     product.descripcion = descripcion
     product.precio = precio
     product.categoria_id = categoria_id
+    if resp_img: product.img = resp_img['secure_url']
 
     product.save()
 
+    data = {
+        "id": product.id,
+        "nombre": product.nombre,
+        "descripcion": product.descripcion,
+        "precio": product.precio,
+        "categoria_id": product.categoria_id,
+        "img": product.img
+    }
 
-    return jsonify(product.serialize()), 201
+    return jsonify(data), 201
 
     
 @api.route('/edit-product/<int:products_id>', methods=['PUT'])
