@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
-import { validate } from "schema-utils";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 
@@ -135,11 +134,11 @@ export const RegistroUsuario = () => {
               placeholder="Nombre"
               value={value.name}
               onChange={e => handleChange(e, false)} />
-            {error.name ? (
+            {/* {error.name ? (
               <small id="error-nombre" className="form-text text-danger">
                 {error.name}
               </small>
-            ) : null}
+            ) : null} */}
             <label htmlFor="name">Nombre</label>
           </div>
           <div className="form-floating col-md-6">
@@ -150,11 +149,11 @@ export const RegistroUsuario = () => {
               placeholder="Apellido paterno"
               value={value.apellidoPaterno}
               onChange={e => handleChange(e, false)} />
-            {error.apellidoPaterno ? (
+            {/* {error.apellidoPaterno ? (
               <small id="error-apellido" className="form-text text-danger">
                 {error.apellidoPaterno}
               </small>
-            ) : null}
+            ) : null} */}
             <label htmlFor="apellidopaterno">Apellido</label>
           </div>
           <div className="form-floating col-md-6">
@@ -166,11 +165,11 @@ export const RegistroUsuario = () => {
               value={value.rut}
               onChange={e => handleChange(e, false)}
             />
-            {error.rut ? (
+            {/* {error.rut ? (
               <small id="error-rut" className="form-text text-danger">
                 {error.rut}
               </small>
-            ) : null}
+            ) : null} */}
             <label htmlFor="rut">RUT</label>
           </div>
           <div className="form-floating col-md-12">
@@ -182,11 +181,11 @@ export const RegistroUsuario = () => {
               value={value.direccion}
               onChange={e => handleChange(e, false)} />
 
-            {error.direccion ? (
+            {/* {error.direccion ? (
               <small id="error-direccion" className="form-text text-danger">
                 {error.direccion}
               </small>
-            ) : null}
+            ) : null} */}
             <label htmlFor="direccion">Calle número, Depto oficina</label>
           </div>
           <div className="form-floating col-md-4">
@@ -221,11 +220,11 @@ export const RegistroUsuario = () => {
               value={value.codigoPostal}
               onChange={e => handleChange(e, false)}
             />
-            {error.codigoPostal ? (
+            {/* {error.codigoPostal ? (
               <small id="error-codigoPostal" className="form-text text-danger">
                 {error.codigoPostal}
               </small>
-            ) : null}
+            ) : null} */}
             <label htmlFor="codigoPostal">Código postal</label>
           </div>
           <div className="form-floating col-md-6">
@@ -238,11 +237,11 @@ export const RegistroUsuario = () => {
               onChange={e => handleChange(e, false)}
             />
 
-            {error.fono ? (
+            {/* {error.fono ? (
               <small id="error-fono" className="form-text text-danger">
                 {error.fono}
               </small>
-            ) : null}
+            ) : null} */}
             <label htmlFor="fono">Número de teléfono</label>
           </div>
           <div className="form-floating col-md-6">
@@ -253,11 +252,11 @@ export const RegistroUsuario = () => {
               placeholder="name@example.com"
               value={value.email}
               onChange={e => handleChange(e, false)} />
-            {error.email ? (
+            {/* {error.email ? (
               <small id="error-email" className="form-text text-danger">
                 {error.email}
               </small>
-            ) : null}
+            ) : null} */}
             <label htmlFor="floatingInput">Correo "name@example.com"</label>
           </div>
           <div className="form-floating col-md-6">
@@ -272,12 +271,16 @@ export const RegistroUsuario = () => {
             <label htmlFor="floatingPassword">Contraseña</label>
           </div>
           <div className="d-grid gap-4 d-md-flex justify-content-md-end pt-2">
-            <button className="btn btn-success mt-2" type="submit">
-              Siguiente
-            </button>
-            <button className="btn btn-secondary mt-2" type="submit">
-              Cancelar
-            </button>
+            <Link to="/">
+              <button className="btn btn-success mt-2" type="submit">
+                Siguiente
+              </button>
+            </Link>
+            <Link to="/">
+              <button className="btn btn-secondary mt-2" type="submit">
+                Cancelar
+              </button>
+            </Link>
           </div>
         </form>
       </div>
