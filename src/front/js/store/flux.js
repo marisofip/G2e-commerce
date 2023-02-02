@@ -91,6 +91,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       agregarCarShop: (id, nombre, precio, cantidad, img) => {
         const store = getStore();
         let index;
+        if(cantidad<1){cantidad=1}
         if(store.carShopping.find( arrobj => arrobj.id === id )) {
           console.log(`${id} ya existe en el array`);
           console.log(parseFloat(store.carShopping.find( arrobj => arrobj.id === id ).cantidad)+parseFloat(cantidad))
