@@ -60,7 +60,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           console.error(e);
         }
       },
-            getEditCategoria: async (id) => {
+      getEditCategoria: async (id) => {
         try {
           console.log("id: " + id);
           const resp = await fetch(
@@ -91,20 +91,20 @@ const getState = ({ getStore, getActions, setStore }) => {
       agregarCarShop: (id, nombre, precio, cantidad, img) => {
         const store = getStore();
         let index;
-        if(cantidad<1){cantidad=1}
-        if(store.carShopping.find( arrobj => arrobj.id === id )) {
+        if (cantidad < 1) { cantidad = 1 }
+        if (store.carShopping.find(arrobj => arrobj.id === id)) {
           console.log(`${id} ya existe en el array`);
-          console.log(parseFloat(store.carShopping.find( arrobj => arrobj.id === id ).cantidad)+parseFloat(cantidad))
-          cantidad=parseFloat(store.carShopping.find( arrobj => arrobj.id === id ).cantidad)+parseFloat(cantidad)
-          index=store.carShopping.findIndex(obj => obj.id === id)
+          console.log(parseFloat(store.carShopping.find(arrobj => arrobj.id === id).cantidad) + parseFloat(cantidad))
+          cantidad = parseFloat(store.carShopping.find(arrobj => arrobj.id === id).cantidad) + parseFloat(cantidad)
+          index = store.carShopping.findIndex(obj => obj.id === id)
           const eliminar = store.carShopping.filter((el, i) => {
             return index !== i;
           });
-          setStore({ carShopping: eliminar });          
-        } 
+          setStore({ carShopping: eliminar });
+        }
         setStore(store.carShopping.push({ id, nombre, precio, cantidad, img }));
       },
-      
+
       eliminarCarShop: (index) => {
         const store = getStore();
 
@@ -128,8 +128,8 @@ const getState = ({ getStore, getActions, setStore }) => {
             user: userLocal
           }
         });
-        console.log("->", tokenLocal);
-        console.log("->", JSON.stringify(userLocal));
+        // console.log("->", tokenLocal);
+        // console.log("->", JSON.stringify(userLocal));
       },
       setLogin: async (email, password) => {
         const response = await fetch(process.env.BACKEND_URL + "/api/login", {
