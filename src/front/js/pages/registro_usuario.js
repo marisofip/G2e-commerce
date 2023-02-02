@@ -29,6 +29,31 @@ export const RegistroUsuario = () => {
 
   const navigate = useNavigate();
 
+  const handleChange = (e, campoNumero) => {
+    e.preventDefault();
+    const { name, value } = e.target;
+    const valor1 = value;
+    const valorNumero = /^[0-9\b]+$/;
+
+    if (campoNumero) {
+      if (valor1 === "" || valorNumero.test(valor1)) {
+        const validarCampo = { [name]: valor1 };
+        setValue({
+          ...value,
+          ...validarCampo
+        });
+        validate(validarCampo);
+      }
+    } else {
+      const validarCampo = { [name]: valor1 };
+      setValue({
+        ...value,
+        ...validarCampo
+      });
+      validate(validarCampo)
+    }
+  };
+
   const handlerClick = async e => {
     e.preventDefault();
 
@@ -100,14 +125,36 @@ export const RegistroUsuario = () => {
         <h1 className="fw-normal bg-secondary text-white py-3 mb-5 rounded-3 text-center">
           Registro de Usuario
         </h1>
-        <form className="row g-3">
+        <form className="row g-3" onSubmit={handlerClick}>
 
           <div className="form-floating col-md-6">
-            <input type="text" className="form-control" id="name" placeholder="Nombre" />
+            <input
+              type="text"
+              className="form-control"
+              id="name"
+              placeholder="Nombre"
+              value={value.name}
+              onChange={e => handleChange(e, false)} />
+            {error.name ? (
+              <small id="error-nombre" className="form-text text-danger">
+                {error.name}
+              </small>
+            ) : null}
             <label htmlFor="name">Nombre</label>
           </div>
           <div className="form-floating col-md-6">
-            <input type="text" className="form-control" id="apellidopaterno" placeholder="Apellido paterno" />
+            <input
+              type="text"
+              className="form-control"
+              id="apellidopaterno"
+              placeholder="Apellido paterno"
+              value={value.apellidoPaterno}
+              onChange={e => handleChange(e, false)} />
+            {error.apellidoPaterno ? (
+              <small id="error-apellido" className="form-text text-danger">
+                {error.apellidoPaterno}
+              </small>
+            ) : null}
             <label htmlFor="apellidopaterno">Apellido</label>
           </div>
           <div className="form-floating col-md-6">
@@ -116,12 +163,30 @@ export const RegistroUsuario = () => {
               className="form-control"
               id="rut"
               placeholder="RUT"
-              value={e.target.rut}
+              value={value.rut}
+              onChange={e => handleChange(e, false)}
             />
+            {error.rut ? (
+              <small id="error-rut" className="form-text text-danger">
+                {error.rut}
+              </small>
+            ) : null}
             <label htmlFor="rut">RUT</label>
           </div>
           <div className="form-floating col-md-12">
-            <input type="text" className="form-control" id="direccion" placeholder="Direccion" />
+            <input
+              type="text"
+              className="form-control"
+              id="direccion"
+              placeholder="Direccion"
+              value={value.direccion}
+              onChange={e => handleChange(e, false)} />
+
+            {error.direccion ? (
+              <small id="error-direccion" className="form-text text-danger">
+                {error.direccion}
+              </small>
+            ) : null}
             <label htmlFor="direccion">Calle número, Depto oficina</label>
           </div>
           <div className="form-floating col-md-4">
@@ -148,26 +213,69 @@ export const RegistroUsuario = () => {
             <label htmlFor="region">Seleccione región</label>
           </div>
           <div className="form-floating col-md-6">
-            <input type="text" className="form-control" id="codigoPostal" placeholder="Código postal" />
+            <input
+              type="text"
+              className="form-control"
+              id="codigoPostal"
+              placeholder="Código postal"
+              value={value.codigoPostal}
+              onChange={e => handleChange(e, false)}
+            />
+            {error.codigoPostal ? (
+              <small id="error-codigoPostal" className="form-text text-danger">
+                {error.codigoPostal}
+              </small>
+            ) : null}
             <label htmlFor="codigoPostal">Código postal</label>
           </div>
           <div className="form-floating col-md-6">
-            <input type="text" className="form-control" id="fono" placeholder="Teléfono" />
+            <input
+              type="text"
+              className="form-control"
+              id="fono"
+              placeholder="Teléfono"
+              value={value.fono}
+              onChange={e => handleChange(e, false)}
+            />
+
+            {error.fono ? (
+              <small id="error-fono" className="form-text text-danger">
+                {error.fono}
+              </small>
+            ) : null}
             <label htmlFor="fono">Número de teléfono</label>
           </div>
           <div className="form-floating col-md-6">
-            <input type="email" className="form-control" id="email" placeholder="name@example.com" />
+            <input
+              type="email"
+              className="form-control"
+              id="email"
+              placeholder="name@example.com"
+              value={value.email}
+              onChange={e => handleChange(e, false)} />
+            {error.email ? (
+              <small id="error-email" className="form-text text-danger">
+                {error.email}
+              </small>
+            ) : null}
             <label htmlFor="floatingInput">Correo "name@example.com"</label>
           </div>
           <div className="form-floating col-md-6">
-            <input type="password" className="form-control" id="password" placeholder="Password" />
+            <input
+              type="password"
+              className="form-control"
+              id="password"
+              placeholder="Password"
+              value={value.password}
+              onChange={e => handleChange(e, false)}
+            />
             <label htmlFor="floatingPassword">Contraseña</label>
           </div>
           <div className="d-grid gap-4 d-md-flex justify-content-md-end pt-2">
-            <button className="btn btn-success mt-2" type="button">
+            <button className="btn btn-success mt-2" type="submit">
               Siguiente
             </button>
-            <button className="btn btn-secondary mt-2" type="button">
+            <button className="btn btn-secondary mt-2" type="submit">
               Cancelar
             </button>
           </div>
