@@ -20,7 +20,7 @@ export const RegistroUsuario = () => {
     comuna: "",
     region: "",
     ciudad: "",
-    codigopostal: "",
+    codigoPostal: "",
     email: "",
     password: "",
   };
@@ -42,12 +42,13 @@ export const RegistroUsuario = () => {
         comuna: value.comuna,
         ciudad: value.ciudad,
         region: value.region,
-        codigopostal: value.codigopostal,
+        codigoPostal: value.codigoPostal,
         email: value.email,
         password: value.password,
       });
       if (!isOk) {
         Swal.fire({
+
           title: "Hubo un Error",
           texte: "Reintente",
           incon: "error",
@@ -67,16 +68,29 @@ export const RegistroUsuario = () => {
     }
   };
 
-  // const validate = (validarCampo = value) => {
-  //   const temp = { ...error };
+  const validate = (validarCampo = value) => {
+    const temp = { ...error };
 
-  //   if ("name" in validarCampo)
-  //     temp.name = 
-  //       validarCampo.name && validarCampo.name.trim().length > 0 ? "Nombre es Obligatorio":
-  //   if ("apellidoPaterno" in validarCampo)
-  //     temp.apellidoPaterno =
-  //       validarCampo.apellidoPaterno && validarCampo.apellidoPaterno.trim().length > 0 ? "Apellido es Obligatorio"
-  // }
+    if ("name" in validarCampo) temp.name = validarCampo.name && validarCampo.name.trim().length > 0 ? "" : "Nombre es Obligatorio";
+    if ("apellidoPaterno" in validarCampo) temp.apellidoPaterno = validarCampo.apellidoPaterno && validarCampo.apellidoPaterno.trim().length > 0 ? "" : "Apellido es Obligatorio";
+    if ("fono" in validarCampo) temp.fono = validarCampo.fono && validarCampo.fono.trim().length > 0 ? "" : "Fono es Obligatorio";
+    if ("rut" in validarCampo) temp.rut = validarCampo.rut && validarCampo.rut.trim().length > 0 ? "" : "Rut es Obligatorio";
+    if ("direccion" in validarCampo) temp.direccion = validarCampo.direccion && validarCampo.direccion.trim().length > 0 ? "" : "Direccion es Obligatoria";
+    if ("comuna" in validarCampo) temp.comuna = validarCampo.comuna && validarCampo.comuna == false ? "" : "Comuna es Obligatoria";
+    if ("ciudad" in validarCampo) temp.ciudad = validarCampo.ciudad && validarCampo.ciudad == false ? "" : "Ciudad es Obligatoria";
+    if ("region" in validarCampo) temp.region = validarCampo.region && validarCampo.region == false ? "" : "Region es Obligatoria";
+    if ("codigoPostal" in validarCampo) temp.codigoPostal = validarCampo.codigoPostal && validarCampo.codigoPostal.trim().length > 0 ? "" : "Codigo Postal es Obligatorio";
+    if ("email" in validarCampo) temp.email = validarCampo.email && validarCampo.email.trim().length > 0 ? "" : "Email es Obligatorio";
+    if ("password" in validarCampo) temp.password = validarCampo.password && validarCampo.password.trim().length > 0 ? "" : "La Contraseña es Obligatoria"
+
+    setError({
+      ...temp
+    });
+
+    if (validarCampo === value) {
+      return Object.value(temp).every(x => x === "");
+    }
+  };
 
 
 
@@ -97,7 +111,13 @@ export const RegistroUsuario = () => {
             <label htmlFor="apellidopaterno">Apellido</label>
           </div>
           <div className="form-floating col-md-6">
-            <input type="text" className="form-control" id="rut" placeholder="RUT" />
+            <input
+              type="text"
+              className="form-control"
+              id="rut"
+              placeholder="RUT"
+              value={e.target.rut}
+            />
             <label htmlFor="rut">RUT</label>
           </div>
           <div className="form-floating col-md-12">
@@ -128,8 +148,8 @@ export const RegistroUsuario = () => {
             <label htmlFor="region">Seleccione región</label>
           </div>
           <div className="form-floating col-md-6">
-            <input type="text" className="form-control" id="codigopostal" placeholder="Código postal" />
-            <label htmlFor="codigopostal">Código postal</label>
+            <input type="text" className="form-control" id="codigoPostal" placeholder="Código postal" />
+            <label htmlFor="codigoPostal">Código postal</label>
           </div>
           <div className="form-floating col-md-6">
             <input type="text" className="form-control" id="fono" placeholder="Teléfono" />
