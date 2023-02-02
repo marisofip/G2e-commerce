@@ -8,7 +8,7 @@ export const Create = () => {
   const [nombre, setNombre] = useState("")
   const [descripcion, setDescripcion] = useState("")
   const [precio, setPrecio] = useState("")
-  const [categoria_id, setCategoria_id] = useState("")
+  const [categoria_id, setCategoria_id] = useState("1")
   const [img, setImg] = useState(null)
   const [currentProduct, setCurrentProduct] = useState(null);
 
@@ -79,7 +79,7 @@ export const Create = () => {
                             <label htmlFor="categoria" className="form-label" >Categoria</label>
                             <select className="form-select" id="categoria"  onChange={e => setCategoria_id(e.target.value)}>
                         {store.categorias !== null &&
-                                     store.categorias.length > 1 &&
+                                     store.categorias.length > 0 &&
                                      store.categorias.map((categoria, index) => {
                                         return (
                                           <option key={categoria.id} value={categoria.id}>  {categoria.nombre}</option>

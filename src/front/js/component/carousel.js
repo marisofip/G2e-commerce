@@ -1,7 +1,4 @@
 import React from "react";
-import ImageUrl from "../../img/catgame.jpg";
-import Image1qUrl from "../../img/catnotebook.jpg";
-import Image2Url from "../../img/catnet.webp";
 import carrusel1 from "../../img/carrusel1.png";
 import carrusel2 from "../../img/carrusel2.png";
 import carrusel3 from "../../img/carrusel3.png";
@@ -18,22 +15,19 @@ export const Carousel = () => {
                 <div className="carousel-item active">
                     <img src={carrusel1} className="d-block w-100" alt="..." style={{ height: '700px' }}/>
                     <div className="carousel-caption d-none d-md-block">
-                        <h1>Aprovecha los Descuentos</h1>
-                        <p></p>
+                       
                     </div>
                 </div>
                 <div className="carousel-item">
                     <img src={carrusel2} className="d-block w-100 text-white" alt="..." style={{ height: '700px' }}/>
                     <div className="carousel-caption d-none d-md-block">
-                        <h1>Redes, Lo Nuevo!</h1>
-                        <p></p>
+                           
                     </div>
                 </div>
                 <div className="carousel-item">
                     <img src={carrusel3} className="d-block w-100" alt="..." style={{ height: '700px' }}/>
                     <div className="carousel-caption d-none d-md-block">
-                        <h1>A todas las regiones</h1>
-                        <p></p>
+                        
                     </div>
                 </div>
             </div>
