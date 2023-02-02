@@ -9,6 +9,7 @@ from api.models import db, User, Product, Categoria, Pedido, Documento
 from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import create_access_token
 from werkzeug.security import generate_password_hash, check_password_hash
+from mercadopago import sdk
 
 
 api = Blueprint('api', __name__)
@@ -94,6 +95,63 @@ def register():
         }
 
         return jsonify(data), 201
+
+
+##ROUTE DE MERCADO PAGO
+@api.route('/preference', methods =['POST'])
+def create_preference():
+    cart = request.json.get('cart')
+    items = [
+
+    ]
+    for Product in cart:
+        items.append({
+            "tittle": product['product.nombre'],
+            "quantity" : product['product.cantidad'],
+            "unit_price": product['product.precio'],
+            "currency_id": product['CLP'],
+            "picture_url": product['product.img'],
+            "description": product['product.descripcion'],
+            "category_id": product['product.categoria_id'],
+        })
+    print(items)
+
+    preference_data = {
+        "items" : items,
+        "payer": {
+        "name": "sofia",
+        "surname": "brito",
+        "email": "test_user_1300934100@testuser.com",
+        
+    },
+    "back_urls": {
+        "success": "https://3000-roacv-g2ecommerce-4tbx4h3d38v.ws-us85.gitpod.io/pay_success",
+        "failure": "https://3000-roacv-g2ecommerce-4tbx4h3d38v.ws-us85.gitpod.io/pay_failure",
+        "pending": "https://3000-roacv-g2ecommerce-4tbx4h3d38v.ws-us85.gitpod.io/pay_pending"
+    },
+    "auto_return": "approved",
+    "payment_methods": {
+        "excluded_payment_types": [
+            {
+                "id": "ticket"
+            }
+        ],
+        "installments": 12
+    },
+    "notification_url": "https://3001-roacv-g2ecommerce-4tbx4h3d38v.ws-us85.gitpod.io/api/ipn",
+    "statement_descriptor": "GRUPO2 PRUEBA",
+    "external_reference": "pedido_20",
+    "expires": false
+}
+    preference_response = sdk.preference().create(preference_data)
+    preference = preference_response["response"]
+
+    data= {
+    "items": items,
+    "preference_data" : preference_data,
+    "preference" : preference
+}
+    return jsonify(data), 200
 
 ##crud productos
 @api.route('/products', methods=['GET'])
