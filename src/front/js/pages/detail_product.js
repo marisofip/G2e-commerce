@@ -1,10 +1,8 @@
 import React, { useState, useContext, useEffect } from "react";
-import { Navbar } from "react-bootstrap";
 import { Context } from "../store/appContext";
 import {Link, useParams} from "react-router-dom";
-import PropTypes from "prop-types";
 import { DetailCard } from "../component/detail-card";
-
+import { NumericFormat } from 'react-number-format';
 
 
 export const Detail = props  => {
@@ -25,18 +23,13 @@ export const Detail = props  => {
     
     
   return (
-   
             <div className="container">
               <div className="row">
                 <div className="col-6 mt-5 pt-5 productIMG">
                   <div className="col">
                     <div className="card mb-4 rounded-3">
                       <div className="card-header py-3">
-                      <img
-                    src={product.img}
-                    className="img-fluid rounded-start h-100"
-                    alt="..."
-                  />
+                        <img src={product.img} className="img-fluid rounded-start h-100" alt="..."/>
                       </div>
                     </div>
                   </div>
@@ -45,17 +38,18 @@ export const Detail = props  => {
                   <h1 className="productTitle">{product.nombre}</h1>
                   <div className="row">
                     <div className="col-6">
-                      <h2 className="priceProduct">$ {product.precio}</h2>
+                      <NumericFormat value={product.precio} prefix="$" thousandSeparator="." decimalSeparator="," displayType="text" renderText={(value) => <h2>{value}</h2>}/>
                     </div>
                     <div className="col-6">
-                      <select id="select"
+                      {/* <select id="select"
                         className="form-select"
                         aria-label="Default select example"
                       >                       
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
-                      </select>
+                      </select> */}
+                      <input type="number" id="cantidad" name="cantidad" placeholder="Cantidad a comprar"/>
                     </div>
                   </div>
                   <hr />
@@ -72,7 +66,7 @@ export const Detail = props  => {
                         type="button"
                         className="btn btn-success btn-md"
                         onClick={() => {
-                          actions.agregarCarShop(product.id,product.nombre,product.precio,select.value,product.img);
+                          actions.agregarCarShop(product.id,product.nombre,product.precio,cantidad.value,product.img);
                         }}
                       >
                         Agregar

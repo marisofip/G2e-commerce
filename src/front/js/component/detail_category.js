@@ -4,6 +4,7 @@ import { Card } from "./cards";
 import { DetailCard } from "./detail-card";
 import { Context } from "../store/appContext";
 import { useParams, Link } from "react-router-dom";
+import { NumericFormat } from "react-number-format";
 
 export const DetailCategory = () => {
   const { id, nombre } = useParams();
@@ -44,7 +45,10 @@ export const DetailCategory = () => {
                     <div className="col-md-8">
                       <div className="card-body">
                         <h5 className="card-title">{products.nombre}</h5>
-                        <p className="card-text">$ {products.precio}</p>
+                        <p className="card-text">{products.descripcion}</p>
+                        <p className="card-text">
+                          <NumericFormat value={products.precio} prefix="Precio $" thousandSeparator="." decimalSeparator="," displayType="text"/>
+                        </p>
                         <Link
                           to={"/detail_product/" + products.id}
                           className="btn btn-primary"
