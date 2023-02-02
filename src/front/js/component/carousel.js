@@ -1,7 +1,4 @@
 import React from "react";
-import ImageUrl from "../../img/catgame.jpg";
-import Image1qUrl from "../../img/catnotebook.jpg";
-import Image2Url from "../../img/catnet.webp";
 import carrusel1 from "../../img/carrusel1.png";
 import carrusel2 from "../../img/carrusel2.png";
 import carrusel3 from "../../img/carrusel3.png";
