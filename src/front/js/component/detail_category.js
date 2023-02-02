@@ -27,7 +27,7 @@ export const DetailCategory = () => {
               </div>
 
       {store.productCategoria !== null &&
-        store.productCategoria.length > 1 &&
+        store.productCategoria.length > 0 &&
         store.productCategoria.map((products, index) => {
           return (
             
