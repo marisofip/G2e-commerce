@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/home.css";
 import { TotalCompra } from "../component/totalcompra";
@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 export const ShoppingCart = () => {
 	const { store, actions } = useContext(Context);
+
 
 	return (
 		<div className="container text-center mt-4 mb-5">

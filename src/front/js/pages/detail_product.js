@@ -8,20 +8,19 @@ import { NumericFormat } from 'react-number-format';
 export const Detail = props  => {
     const {id} = useParams();
     const {store, actions}  = useContext(Context);
+    const [cantidad,setCantidad] = useState(1);
 
-    useEffect(() => {
-      
+
+
+    useEffect(() => {    
       actions.getDetailProduct(id)
     }, [])
     useEffect(() => {
-      
       actions.getDetailProduct(id)
     }, [id])
     
-    
     const product = store.productDetail
-    
-    
+
   return (
             <div className="container">
               <div className="row">
@@ -49,7 +48,8 @@ export const Detail = props  => {
                         <option value="2">2</option>
                         <option value="3">3</option>
                       </select> */}
-                      <input type="number" id="cantidad" name="cantidad" placeholder="Cantidad a comprar"/>
+                      <label htmlFor="cantidad" className="">Cantidad</label>
+                      <input className="ms-1" type="number" id="cantidad" name="cantidad" placeholder="" value={cantidad} onChange={e => {e.target.value<1 ? setCantidad(1) : setCantidad(e.target.value)}}/>
                     </div>
                   </div>
                   <hr />
@@ -66,7 +66,7 @@ export const Detail = props  => {
                         type="button"
                         className="btn btn-success btn-md"
                         onClick={() => {
-                          actions.agregarCarShop(product.id,product.nombre,product.precio,cantidad.value,product.img);
+                          actions.agregarCarShop(product.id,product.nombre,product.precio,cantidad,product.img);
                         }}
                       >
                         Agregar
