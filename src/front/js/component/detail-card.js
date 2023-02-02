@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import ImageUrl from "../../img/fondo.png";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
+import { NumericFormat } from "react-number-format";
 import { Detail } from "../pages/detail_product";
 
 export const DetailCard = (item) => {
@@ -24,10 +25,13 @@ export const DetailCard = (item) => {
                 <div className="col-md-8">
                   <div className="card-body">
                     <h5 className="card-title">{products.nombre}</h5>
-                    <p className="card-text">$ {products.precio}</p>
+                    <p className="card-text">{products.descripcion}</p>
+                    <p className="card-text">
+                      <NumericFormat value={products.precio} prefix="Precio $" thousandSeparator="." decimalSeparator="," displayType="text"/>
+                    </p>
                     <Link
                       to={"/detail_product/" + products.id}
-                      className="btn btn-primary"
+                      className="btn btn-primary text-end"
                     >
                       Ver
                     </Link>
