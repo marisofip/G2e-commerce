@@ -40,7 +40,7 @@ export const Login = () => {
         icon: 'success',
         confirmButtonText: 'Continuar',
       }).then(() => {
-        navigate("/")
+        navigate("/shop")
       });
     }
 

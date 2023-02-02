@@ -1,12 +1,13 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { Context } from "../store/appContext";
 
 
 
 
 export const RegistroUsuario = () => {
-  const { actions } = useContext("")
+  const { actions } = useContext(Context);
   const [error, setError] = useState({});
 
   const inicializador = {

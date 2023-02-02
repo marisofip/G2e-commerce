@@ -47,7 +47,7 @@ def login():
     
     if not foundUser: return jsonify({"message": "Email/Password are incorrects"}), 401
     ##if not check_password_hash(foundUser.password, password): return jsonify({"message": "Email/Password are incorrects"}), 401
-    if foundUser.password != password: return jsonify({"message": "Email/Password are incorrects"}), 401
+    if not check_password_hash(foundUser.password, password): return jsonify({"message": "Email/Password are incorrects"}), 401
 
     expires = datetime.timedelta(days=3)
     access_token = create_access_token(identity=foundUser.id, expires_delta=expires)
