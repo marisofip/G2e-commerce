@@ -28,8 +28,10 @@ export const Register = () => {
     const navigate = useNavigate();
 
     const handlerClick = async (e) => {
+        console.log("Entre al handle")
         e.preventDefault();
-
+        console.log("que trae el validate")
+        console.log(validate())
         if (validate()) {
             const isOk = await actions.setRegister({
                 name: values.name,
@@ -92,8 +94,9 @@ export const Register = () => {
 
     const validate = (validarCampo = values) => {
         const temp = { ...error };
+        console.log("en validate")
 
-        if ("name" in validarCampo) temp.name = validarCampo.name && validarCampo.name.trim().length > 0 ? "" : "Nombre es Obligatorio";
+        if ("name" in validarCampo) temp.name = validarCampo.name && validarCampo.name.trim().length > 0 ? "BIEN" : "Nombre es Obligatorio";
         if ("apellido" in validarCampo) temp.apellido = validarCampo.apellido && validarCampo.apellido.trim().length > 0 ? "" : "Apellido es Obligatorio";
         if ("fono" in validarCampo) temp.fono = validarCampo.fono && validarCampo.fono.trim().length > 0 ? "" : "Telefono es Obligatorio";
         if ("rut" in validarCampo) temp.rut = validarCampo.rut && validarCampo.rut.trim().length > 0 ? "" : "Rut es Obligatorio";
@@ -101,10 +104,11 @@ export const Register = () => {
         if ("codigoPostal" in validarCampo) temp.codigoPostal = validarCampo.codigoPostal && validarCampo.codigoPostal.trim().length > 0 ? "" : "El Codigo es Obligatorio";
         if ("email" in validarCampo) temp.email = validarCampo.email && validarCampo.email.trim().length > 0 ? "" : "Email es Obligatorio";
         if ("password" in validarCampo) temp.password = validarCampo.password && validarCampo.password.trim().length > 0 ? "" : "La Contraseña es Obligatoria";
-
         setError({
             ...temp
         });
+        console.log(error)
+        return true
     };
     // if (validarCampo === values) {
     //     return Object.values(temp)
@@ -115,7 +119,7 @@ export const Register = () => {
             <h1 className="fw-normal bg-secondary text-white py-3 mb-5 rounded-3 text-center">
                 Regitro de Usuario
             </h1>
-            <form className="row g-3" onSubmit={handlerClick}>
+            <form className="row g-3">
                 <div className="form-floating col-md-6">
                     <input
                         type="text"
@@ -134,6 +138,11 @@ export const Register = () => {
                         placeholder="Apellido paterno"
                         value={values.apellido}
                         onChange={e => handleInputChange(e, false)} />
+                        {error.apellidoPaterno ? (
+                            <small id="error-apellido" className="form-text text-danger">
+                              {error.apellidoPaterno}
+                            </small>
+                          ) : null} 
                     <label htmlFor="apellido">Apellido</label>
                 </div>
                 <div className="form-floating col-md-6">

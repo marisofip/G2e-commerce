@@ -69,22 +69,17 @@ def login():
 def register():
 
     nombre = request.json.get('nombre')
-    apellido = request.json.get('nombre')
+    apellido = request.json.get('apellido')
     rut = request.json.get('rut')
     direccion = request.json.get('direccion')
     comuna = request.json.get('comuna')
     telefono = request.json.get('telefono')
-    rut = request.json.get("rut")
-    direccion = request.json.get("direccion")
-    comuna = request.json.get("comuna")
     ciudad = request.json.get("ciudad")
     region = request.json.get("region")
     codigoPostal = request.json.get("codigoPostal")
     email = request.json.get('email')
     password = request.json.get('password')
-    region = request.json.get('region')
-    ciudad = request.json.get('ciudad')
-    codigoPostal = request.json.get('codigoPostal')
+
 
     if not email:
         return jsonify({"message": "Email is required"}), 400

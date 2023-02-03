@@ -6,7 +6,8 @@ import { Context } from "../store/appContext";
 
 
 
-export const RegistroUsuario = () => {
+export const RegistroUsuario = () => 
+{
   const { actions } = useContext(Context);
   const [error, setError] = useState({});
 
@@ -118,14 +119,14 @@ export const RegistroUsuario = () => {
 
   // if (validarCampo === value) {
   //   return Object.value(temp).every(x => x === "");
-}
+
 
 return (
   <div className="container w-50 justify-content-center mt-5  mb-5">
     <h1 className="fw-normal bg-secondary text-white py-3 mb-5 rounded-3 text-center">
       Registro de Usuario
     </h1>
-    <form className="row g-3" onSubmit={handlerClick}>
+    <form className="row g-3">
 
       <div className="form-floating col-md-6">
         <input
@@ -268,7 +269,7 @@ return (
       </div>
       <div className="d-grid gap-4 d-md-flex justify-content-md-end pt-2">
         <Link to="/shop">
-          <button className="btn btn-success mt-2" type="submit" onClick={e => handlerClick(e)}>
+          <button className="btn btn-success mt-2" onClick={e => handlerClick(e)}>
             Siguiente
           </button>
         </Link>
@@ -280,5 +281,5 @@ return (
       </div>
     </form>
   </div>
-);
+  );
 };
