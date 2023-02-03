@@ -60,13 +60,8 @@ const Layout = () => {
             <Route element={<Categoria />} path="/categoryList" />
             <Route element={<NewCategory />} path="/createCategory" />
             <Route element={<EditCategory />} path="/edit-categoria/:id" />
-<<<<<<< HEAD
             {/* <Route element={<Pay_success />} path="/pay_success" />
             <Route element={<Pay_failure />} path="/pay_failure" />
-=======
-           <Route element={<Pay_success />} path="/pay_success" />
-           {/* <Route element={<Pay_failure />} path="/pay_failure" />
->>>>>>> 471fafa46b761405d7c73e4334bb7e8adec1eca7
             <Route element={<Pay_pending />} path="/pay_pending" />
   */}
             <Route
