@@ -1,26 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logoImageUrl from "../../img/logo.png";
-//import logoG2  from "../../img/logoG2.png";
 import CarShopping from "./carrito";
-import { Shop } from "../pages/shop";
+import { useContext, useState } from "react";
+import { Context } from "../store/appContext";
+//import { Shop } from "../pages/shop";
 
 export const Navbar = () => {
-  var rolUser= "admin";
+  const { store, actions } = useContext(Context);
+  console.log(store.rolUser)
+  console.log(store.user)
+  if (store.user !== null) {
+    console.log(store.user.user.roles[0].nombre)
+  }
   return (
-    // <nav className="navbar navbar-light bg-light">
-    // 	<div className="container">
-    // 		<Link to="/">
-    // 			<img className="d-inline-block  me-2" src={rigoImageUrl} alt="Logo" width="100" height="50" />
-    // 			<span className="navbar-brand ms-2 mb-0 h1">Inicio</span>
-    // 		</Link>
-    // 		<div className="ml-auto">
-    // 			<Link to="/demo">
-    // 				<button className="btn btn-primary">Check the Context in action</button>
-    // 			</Link>
-    // 		</div>
-    // 	</div>
-    // </nav>
+
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
@@ -56,11 +50,14 @@ export const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/login">
-                Login
-              </Link>
+              {store.user !== null
+                ?<p className="mt-2">"bienvenido {store.user.user.nombre}"</p>  
+                :<Link className="nav-link" to="/login">Login</Link>
+              }
             </li>
-            {rolUser === "admin" &&
+            {store.user !== null && 
+             store.user.user.roles[0].nombre === "admin" &&
+              
               <li className="nav-item dropdown">
                 <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Admin

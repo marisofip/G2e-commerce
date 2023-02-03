@@ -25,7 +25,7 @@ export const Product = () => {
           <tbody>
           {         
           store.products !== null &&
-        store.products.length > 1 &&
+        store.products.length > 0 &&
         store.products.map((products, index) => {
              return (
             <tr key={products.id}>

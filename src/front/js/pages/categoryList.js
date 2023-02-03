@@ -31,7 +31,7 @@ export const Categoria = () => {
                                         </Link>
                                     </td> */}
                                     {store.categorias !== null &&
-                                     store.categorias.length > 1 &&
+                                     store.categorias.length > 0 &&
                                      store.categorias.map((categorias, index) => {
                                         return (
                                             <tr key={categorias.id}>
