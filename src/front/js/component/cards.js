@@ -8,7 +8,7 @@ export const Card = () => {
     return (
       <>
         {store.categorias !== null &&
-          store.categorias.length > 1 &&
+          store.categorias.length > 0 &&
           store.categorias.map((categorias, index) => {
             return (
             <div className="card mx-auto my-2" key={categorias.id} style={{ width: '33rem' }}>

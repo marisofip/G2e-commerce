@@ -10,7 +10,7 @@ export const DetailCard = (item) => {
   return (
     <>
       {store.products !== null &&
-        store.products.length > 1 &&
+        store.products.length > 0 &&
         store.products.map((products, index) => {
           return (
             <div className="card mb-3 me-1" key={products.id} style={{ width: '25rem' }}>

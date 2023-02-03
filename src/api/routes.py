@@ -69,7 +69,14 @@ def login():
 def register():
 
     nombre = request.json.get('nombre')
+<<<<<<< HEAD
     apellido = request.json.get('apellido')
+=======
+    apellido = request.json.get('nombre')
+    rut = request.json.get('rut')
+    direccion = request.json.get('direccion')
+    comuna = request.json.get('comuna')
+>>>>>>> 471fafa46b761405d7c73e4334bb7e8adec1eca7
     telefono = request.json.get('telefono')
     rut = request.json.get("rut")
     direccion = request.json.get("direccion")
@@ -79,6 +86,12 @@ def register():
     codigoPostal = request.json.get("codigoPostal")
     email = request.json.get('email')
     password = request.json.get('password')
+<<<<<<< HEAD
+=======
+    region = request.json.get('region')
+    ciudad = request.json.get('ciudad')
+    codigoPostal = request.json.get('codigoPostal')
+>>>>>>> 471fafa46b761405d7c73e4334bb7e8adec1eca7
 
     if not email:
         return jsonify({"message": "Email is required"}), 400
@@ -96,6 +109,7 @@ def register():
     user.nombre = nombre
     user.apellido = apellido
     user.telefono = telefono
+<<<<<<< HEAD
     user.comuna = comuna
     user.ciudad = ciudad
     user.region = region
@@ -103,6 +117,18 @@ def register():
     user.direccion = direccion
     user.rut = rut
 
+=======
+    user.rut = rut
+    user. comuna = comuna
+    user.direccion = direccion
+    user.codigoPostal = codigoPostal
+    user.ciudad = ciudad
+    user.region = region
+
+
+
+       
+>>>>>>> 471fafa46b761405d7c73e4334bb7e8adec1eca7
     user.save()
 
     if user:

@@ -2,7 +2,7 @@ const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
       apiUrl:
-        process.env.BACKEND_URL + "/api/",
+      process.env.BACKEND_URL + "/api/",
       products: {},
       categorias: {},
       productDetail: {},
@@ -12,6 +12,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       mostrarCarShop: false,
       isLogged: false,
       user: null,
+      rolUser:null,
     },
     actions:
     {
