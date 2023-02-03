@@ -35,7 +35,6 @@ class User(db.Model):
             "ciudad": self.ciudad,
             "region": self.region,
             "codigoPostal": self.codigoPostal,
-            "telefono": self.telefono,
             "roles": list(map(lambda role: role.serialize(), self.roles))
 
             # do not serialize the password, its a security breach

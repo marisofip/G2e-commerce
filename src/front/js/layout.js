@@ -19,7 +19,7 @@ import { Footer } from "./component/footer";
 import { Product } from "./pages/product";
 import { Create } from "./pages/create_product";
 import { Shipping } from "./pages/shipping";
-import { RegistroUsuario } from "./pages/registro_usuario";
+import { Register } from "./pages/userRegister";
 import { Users } from "./pages/users";
 import { EditUser } from "./pages/edit_user";
 import { Pedidos } from "./pages/pedidos";
@@ -42,7 +42,7 @@ const Layout = () => {
             <Route element={<Home />} path="/" />
             {/* <Route element={<Demo />} path="/demo" /> */}
             <Route element={<Login />} path="/login" />
-            <Route element={<RegistroUsuario />} path="/registro_usuario" />
+            <Route element={<Register />} path="/registro_usuario" />
             <Route element={<Users />} path="/users" />
             <Route element={<EditUser />} path="/edit_user" />
             <Route element={<Pedidos />} path="/pedidos" />
@@ -59,7 +59,7 @@ const Layout = () => {
             <Route element={<Categoria />} path="/categoryList" />
             <Route element={<NewCategory />} path="/createCategory" />
             <Route element={<EditCategory />} path="/edit-categoria/:id" />
-           {/* <Route element={<Pay_success />} path="/pay_success" />
+            {/* <Route element={<Pay_success />} path="/pay_success" />
             <Route element={<Pay_failure />} path="/pay_failure" />
             <Route element={<Pay_pending />} path="/pay_pending" />
   */}
