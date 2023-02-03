@@ -30,8 +30,6 @@ export const Shipping = () => {
                     type="text"
                     className="form-control"
                     id="firstName"
-                    placeholder=""
-                    value=""
                     required=""
                   />
                   <div className="invalid-feedback">Es requerido.</div>
@@ -45,8 +43,6 @@ export const Shipping = () => {
                     type="text"
                     className="form-control"
                     id="lastName"
-                    placeholder=""
-                    value=""
                     required=""
                   />
                   <div className="invalid-feedback">Es requerido.</div>
@@ -85,7 +81,9 @@ export const Shipping = () => {
                   </label>
                   <select className="form-select" id="country" required="">
                     <option value="">Elige...</option>
-                    <option>Ejemplo Comuna</option>
+                    <option>Santiago</option>
+                    <option>Providencia</option>
+                    <option>Las Condes</option>
                   </select>
                   <div className="invalid-feedback">
                     Selecciona una opcion valida.
@@ -98,7 +96,7 @@ export const Shipping = () => {
                   </label>
                   <select className="form-select" id="state" required="">
                     <option value="">Elige...</option>
-                    <option>Ejemplo ciudad</option>
+                    <option>Santiago</option>
                   </select>
                   <div className="invalid-feedback">
                     Selecciona una opcion valida.

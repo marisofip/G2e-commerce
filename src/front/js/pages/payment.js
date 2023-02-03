@@ -1,4 +1,5 @@
 import React,  { useContext, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { TotalCompra } from "../component/totalcompra";
 
 export const Payments = () => {
@@ -55,7 +56,7 @@ export const Payments = () => {
 
                   <div className="row">
                     <div className="col-md-5">
-                      <label for="Card"> Card# </label>
+                      <label for="Card"> Numero de Tarjeta </label>
                       <br />
                       <input
                         type="text"
@@ -66,7 +67,7 @@ export const Payments = () => {
                       />
                     </div>
                     <div className="col-md-3">
-                      <label for="number"> CVC# </label>
+                      <label for="number"> CVC </label>
                       <br />
                       <input
                         type="text"
@@ -77,20 +78,20 @@ export const Payments = () => {
                       />
                     </div>
                     <div className="col-md-4">
-                      <label for="cantidad"> Amount </label>
+                      <label for="cantidad"> Monto </label>
                       <br />
                       <input
                         type="text"
                         name="cantidad"
                         id="cantidad"
-                        placeholder="Amount"
+                        placeholder="Monto a pagar"
                         className="form-control "
                       />
                     </div>
                   </div>
                   <div className="row mt-2">
                     <div className="col-md-6">
-                      <label for="name">Name</label>
+                      <label for="name">Nombre</label>
                       <br />
                       <input
                         type="text"
@@ -100,7 +101,7 @@ export const Payments = () => {
                       />
                     </div>
                     <div className="col-md-6">
-                      <label for="name"> Last Name</label>
+                      <label for="name"> Apellido</label>
                       <br />
                       <input
                         type="text"
@@ -112,7 +113,7 @@ export const Payments = () => {
                   </div>
                   <div className="row">
                     <div className="col-md-6">
-                      <label for="City">City</label>
+                      <label for="City">Region</label>
                       <br />
                       <input
                         type="text"
@@ -122,20 +123,19 @@ export const Payments = () => {
                       />
                     </div>
                     <div className="col-md-3">
-                      <label for="State">State</label>
+                      <label for="State">Ciudad</label>
                       <br />
                       <select
                         name="State"
                         id="State"
                         className="form-control pb-2"
                       >
-                        <option value="">Pick State</option>
-                        <option value="Florida">Florida</option>
-                        <option value="California">California</option>
-                      </select>
+                        <option value="">Comuna</option>
+                        <option value="Florida">Santiago</option>
+                         </select>
                     </div>
                     <div className="col-md-3">
-                      <label for="PostalCode">Postal Code</label>
+                      <label for="PostalCode">Codigo Postal</label>
                       <br />
                       <input
                         type="text"
@@ -229,12 +229,12 @@ export const Payments = () => {
                 <div className="card-footer text-muted">
                   <div className="row">
                     <div className="col-md-12 d-flex">
-                      <button type="button" className="btn btn-secondary">
-                        Cancel
-                      </button>
-                      <button type="submit" className="btn btn-primary ml-2">
-                        Send
-                      </button>
+                     <Link to="/shopping-cart"><button type="button" className="btn btn-secondary">
+                        Cancelar
+                      </button> </Link> 
+                     <Link to="/pay_success"> <button type="submit" className="btn btn-primary ml-2">
+                        Enviar Datos
+                      </button></Link>
                     </div>
                   </div>
                 </div>
