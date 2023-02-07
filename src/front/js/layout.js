@@ -67,9 +67,11 @@ const Layout = () => {
             <Route
               path="*"
               element={
-                <h1 className="text-center alert alert-info my-5 p-5">
-                  Oops! El recurso solicitado no está disponible
-                </h1>
+                <div className="row align-items-center" style={{height:"680px"}}>
+                  <h1 className="text-center alert alert-info my-5 p-5">
+                    Oops! El recurso solicitado no está disponible
+                  </h1>
+                </div>
               }
             />
           </Routes>
