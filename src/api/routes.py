@@ -125,19 +125,24 @@ def register():
 # ROUTE DE MERCADO PAGO
 @api.route('/preference', methods=['POST'])
 def create_preference():
-    cart = request.json.get('cart')
-    items = [
-
-    ]
+    print(request.data)
+    cart=request.json
+    ##return jsonify(cart)
+    ##cart = request.json.get('cart')
+    items = []
+    print("imprimiendo")
+    for Product in cart:
+            print(Product.get('id'))
+            print(Product.get('nombre'))
     for Product in cart:
         items.append({
-            "tittle": product['product.nombre'],
-            "quantity": product['product.cantidad'],
-            "unit_price": product['product.precio'],
-            "currency_id": product['CLP'],
-            "picture_url": product['product.img'],
-            "description": product['product.descripcion'],
-            "category_id": product['product.categoria_id'],
+            "tittle": Product.get('nombre'),
+            "quantity": Product.get('cantidad'),
+            "unit_price": Product.get('precio'),
+            "currency_id": 'CLP',
+            "picture_url": Product.get('img'),
+            "description": Product.get('nombre'),
+            "category_id": Product.get('nombre'),
         })
     print(items)
 

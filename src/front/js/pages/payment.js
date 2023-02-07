@@ -1,24 +1,32 @@
 import React,  { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { TotalCompra } from "../component/totalcompra";
+import { Context } from "../store/appContext";
+
 
 export const Payments = () => {
-  const [cart, setCart] = useState({});
+  const [cart, setCart] = useState([]);
 	const [preference, setPreference] = useState(null);
+  const { store, actions } = useContext(Context);
   
   const createPreference = async () => {
 		try {
+      // store.carShopping
+      // Antes cart
+      // Antes body: JSON.stringify(store.carShopping),
 			const resp = await fetch(`${process.env.BACKEND_URL}/api/preference`, {  
 				method: 'POST', 
-				body: JSON.stringify(cart),
+				body: JSON.stringify(store.carShopping),
 				headers: { 'Content-Type': 'application/json'}
 
 			})
 			const data = await resp.json();
+      console.log("volviendo de preference")
+      console.log(data)
 			setPreference(data)
 			
 		} catch (error) {
-			
+
 		}
 	}
 
