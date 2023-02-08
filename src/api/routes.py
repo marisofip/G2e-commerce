@@ -236,10 +236,10 @@ def create_product():
         return jsonify({"message": "Product already exists"}), 400
 
     product = Product()
-    print("Los print")
-    print(categoria_id)
-    print(request.form['categoria_id'])
-    print(resp_img['secure_url'])
+    ##print("Los print")
+    ##print(categoria_id)
+    ##print(request.form['categoria_id'])
+   ##print(resp_img['secure_url'])
     product.nombre = nombre
     product.descripcion = descripcion
     product.precio = precio
