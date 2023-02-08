@@ -19,7 +19,7 @@ export const Shipping = () => {
           </div>
 
           <div className="col-md-7 col-lg-8">
-            <h4 className="mb-3">Direcion de envio</h4>
+            <h4 className="mb-3">Direción de envío</h4>
             <form className="needs-validation" novalidate="">
               <div className="row g-3">
                 <div className="col-sm-6">
@@ -86,7 +86,7 @@ export const Shipping = () => {
                     <option>Las Condes</option>
                   </select>
                   <div className="invalid-feedback">
-                    Selecciona una opcion valida.
+                    Selecciona una opcion válida.
                   </div>
                 </div>
 
@@ -99,7 +99,7 @@ export const Shipping = () => {
                     <option>Santiago</option>
                   </select>
                   <div className="invalid-feedback">
-                    Selecciona una opcion valida.
+                    Selecciona una opcion válida.
                   </div>
                 </div>
 
@@ -118,7 +118,7 @@ export const Shipping = () => {
                 </div>
                 <div className="col-md-6">
                   <label for="zip" className="form-label">
-                    Telefono{" "}
+                    Teléfono{" "}
                   </label>
                   <input
                     type="text"
@@ -139,9 +139,10 @@ export const Shipping = () => {
           <Link className="btn btn-success mt-5 " type="button" to="/payment">
             Siguiente
           </Link>
-          <button className="btn btn-secondary mt-5 " type="button">
+         
+          <Link className="btn btn-secondary mt-5 " type="button" to="/shopping-cart">
             Cancelar
-          </button>
+          </Link>
         </div>
       </div>
     </>

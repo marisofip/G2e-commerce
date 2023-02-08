@@ -68,7 +68,7 @@ export const Create = () => {
                             <input type="text" className="form-control" id="nombre" placeholder="Escribe aqui" onChange={e => setNombre(e.target.value)} value={nombre} />
                         </div>
                         <div className="form-group mb-3">
-                            <label htmlFor="descripcion" className="form-label">Descripcion</label>
+                            <label htmlFor="descripcion" className="form-label">Descripción</label>
                             <textarea className="form-control" id="descripcion" rows="3" onChange={e => setDescripcion(e.target.value)} value={descripcion} />
                         </div>
                         <div className="form-group mb-3">
@@ -76,7 +76,7 @@ export const Create = () => {
                             <input type="text" className="form-control" id="precio" placeholder="Escribe aqui" onChange={e => setPrecio(e.target.value)} value={precio} />
                         </div>
                         <div className="form-group mb-3"  >
-                            <label htmlFor="categoria" className="form-label" >Categoria</label>
+                            <label htmlFor="categoria" className="form-label" >Categoría</label>
                             <select className="form-select" id="categoria"  onChange={e => setCategoria_id(e.target.value)}>
                         {store.categorias !== null &&
                                      store.categorias.length > 0 &&

@@ -49,9 +49,9 @@ export const ShoppingCart = () => {
 				<Link className="btn btn-success mt-2" type="button" to="/shipping">
 					Siguiente
 				</Link>
-				<button className="btn btn-secondary mt-2" type="button">
+				<Link className="btn btn-secondary mt-2" type="button" to="/" >
 					Cancelar
-				</button>
+				</Link>
           	</div>
 		</div>
 		

@@ -57,11 +57,11 @@ export const NewCategory = () => {
                 <div className='col-6'>
                     <form onSubmit={handleSubmit}>
                         <div className="form-group mb-3">
-                            <label htmlFor="nombre" className="form-label">Nombre de Categoria</label>
+                            <label htmlFor="nombre" className="form-label">Nombre de Categoría</label>
                             <input type="text" className="form-control" id="nombre" placeholder="Escribe aqui" onChange={e => setNombre(e.target.value)} value={nombre} />
                         </div>
                         <div className="form-group mb-3">
-                            <label htmlFor="descripcion" className="form-label">Descripcion</label>
+                            <label htmlFor="descripcion" className="form-label">Descripción</label>
                             <textarea className="form-control" id="descripcion" rows="3" onChange={e => setDescripcion(e.target.value)} value={descripcion} />
                         </div>
                         <div className="form-group mb-3">

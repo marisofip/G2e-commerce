@@ -53,7 +53,7 @@ export const Login = () => {
           className="fw-normal p-0 shadow-none p-3 mb-5 bg-light rounded-4 border border-dark"
           style={{ textAlign: "center", boxShadow: "0.2" }}
         >
-          Inicia Sesion
+          Inicia Sesión
         </h1>
         <form>
           <div className="form-floating mt-3">
