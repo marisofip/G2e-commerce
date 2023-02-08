@@ -31,7 +31,7 @@ export const EditCategory = () => {
                             <input type="text" className="form-control" id="nombre" placeholder={categoria.nombre}  />
                         </div>
                         <div className="form-group mb-3">
-                            <label htmlFor="descripcion" className="form-label"> Descripcion</label>
+                            <label htmlFor="descripcion" className="form-label"> Descripción</label>
                             <textarea className="form-control" id="descripcion" rows="3" placeholder={categoria.descripcion} />
                         </div>
                         <div className="form-group mb-3">

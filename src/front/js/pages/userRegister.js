@@ -163,7 +163,7 @@ export const Register = () => {
                         placeholder="direccion"
                         value={values.direccion}
                         onChange={e => handleInputChange(e, false)} />
-                    <label htmlFor="direccion">Direccion</label>
+                    <label htmlFor="direccion">Dirección</label>
                 </div>
                 <div className="form-floating col-md-4">
                     <select className="form-select" id="comuna" aria-label="Seleccione comuna">
@@ -183,7 +183,7 @@ export const Register = () => {
                 </div>
                 <div className="form-floating col-md-4">
                     <select className="form-select" id="region" aria-label="Seleccione región">
-                        <option value="0">Region</option>
+                        <option value="0">Región</option>
                         <option value="1">Región Metropolitana</option>
                     </select>
                     <label htmlFor="region">Seleccione región</label>
@@ -208,7 +208,7 @@ export const Register = () => {
                         value={values.fono}
                         onChange={e => handleInputChange(e, false)}
                     />
-                    <label htmlFor="telefono">Telefono</label>
+                    <label htmlFor="telefono">Teléfono</label>
                 </div>
                 <div className="form-floating col-md-6">
                     <input

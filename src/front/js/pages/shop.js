@@ -9,7 +9,7 @@ export const Shop = () => {
     <>
       <div className="Container-fluid">
         <h1 className="mt-5" style={{ textAlign: "center" }}>
-          CATEGORIAS
+          CATEGORÍAS
         </h1>
         <div className="row justify-content-center mt-5  mb-5">
           <Card />

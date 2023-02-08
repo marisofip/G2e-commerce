@@ -51,7 +51,7 @@ export const Navbar = () => {
             </li>
             <li className="nav-item">
               {store.user !== null
-                ?<p className="mt-2">"bienvenido {store.user.user.nombre}"</p>  
+                ?<p className="mt-2">"Bienvenido {store.user.user.nombre}"</p>  
                 :<Link className="nav-link" to="/login">Login</Link>
               }
             </li>
