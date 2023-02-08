@@ -9,7 +9,7 @@ export const Payments = () => {
 	const [preference, setPreference] = useState(null);
   const { store, actions } = useContext(Context);
   const mp = new MercadoPago(process.env.PUBLIC_KEY, {
-    locale: 'es-CL'
+    locale: 'es-AR'
   });
   
   const createPreference = async () => {
@@ -28,16 +28,15 @@ export const Payments = () => {
       console.log(data)
 			setPreference(data)
 			console.log(data.preference.id)
-      // mp.checkout({
-      //   preference: {
-      //     id: '${data.preference.id}'
-      //   },
-      //   render: {
-      //     container: '.cho-container',
-      //     label: 'Pagar',
-      //   }
-      // });
-
+      mp.checkout({
+        preference: {
+          id: data.preference.id
+        },
+        render: {
+          container: '.cho-container', // Class name where the payment button will be displayed
+          label: 'Pgar', // Change the payment button text (optional)
+        }
+      });
 
 		} catch (error) {
 
