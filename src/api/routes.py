@@ -4,12 +4,13 @@ This module takes care of starting the API Server, Loading the DB and Adding the
 import os
 import datetime
 import cloudinary.uploader
+import mercadopago
 from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User, Product, Categoria, Pedido, Documento
 from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import create_access_token
 from werkzeug.security import generate_password_hash, check_password_hash
-from mercadopago import sdk
+#from mercadopago import sdk
 
 
 api = Blueprint('api', __name__)
@@ -125,12 +126,9 @@ def register():
 # ROUTE DE MERCADO PAGO
 @api.route('/preference', methods=['POST'])
 def create_preference():
-    print(request.data)
     cart=request.json
-    ##return jsonify(cart)
-    ##cart = request.json.get('cart')
     items = []
-    print("imprimiendo")
+    sdk = mercadopago.SDK(os.getenv("PROD_ACCESS_TOKEN"))
     for Product in cart:
             print(Product.get('id'))
             print(Product.get('nombre'))
@@ -144,37 +142,43 @@ def create_preference():
             "description": Product.get('nombre'),
             "category_id": Product.get('nombre'),
         })
-    print(items)
 
     preference_data = {
         "items": items,
         "payer": {
-            "name": "sofia",
-            "surname": "brito",
-            "email": "test_user_1300934100@testuser.com",
+           "name": "sofia",
+           "surname": "brito",
+           "email": "test_user_1300934100@testuser.com",
 
         },
         "back_urls": {
-            "success": "https://3000-roacv-g2ecommerce-4tbx4h3d38v.ws-us85.gitpod.io/pay_success",
-            "failure": "https://3000-roacv-g2ecommerce-4tbx4h3d38v.ws-us85.gitpod.io/pay_failure",
-            "pending": "https://3000-roacv-g2ecommerce-4tbx4h3d38v.ws-us85.gitpod.io/pay_pending"
+           "success": "https://3000-roacv-g2ecommerce-4tbx4h3d38v.ws-us85.gitpod.io/pay_success",
+           "failure": "https://3000-roacv-g2ecommerce-4tbx4h3d38v.ws-us85.gitpod.io/pay_failure",
+           "pending": "https://3000-roacv-g2ecommerce-4tbx4h3d38v.ws-us85.gitpod.io/pay_pending"
         },
         "auto_return": "approved",
         "payment_methods": {
-            "excluded_payment_types": [
-                {
-                    "id": "ticket"
-                }
-            ],
-            "installments": 12
+           "excluded_payment_types": [
+               {
+                   "id": "ticket"
+               }
+           ],
+           "installments": 12
         },
         "notification_url": "https://3001-roacv-g2ecommerce-4tbx4h3d38v.ws-us85.gitpod.io/api/ipn",
         "statement_descriptor": "GRUPO2 PRUEBA",
         "external_reference": "pedido_20",
-        "expires": false
+        "expires": False
     }
-    preference_response = sdk.preference().create(preference_data)
+    
+    print(preference_data)
+    #preference_response = sdk.preference().create(preference_data)
+    preference_response=sdk.preference().create(preference_data)
+    #preference_response= sdk.Preference().create(preference_data)
     preference = preference_response["response"]
+    print(preference_response)
+    print(preference)
+
 
     data = {
         "items": items,
