@@ -106,7 +106,7 @@ export const NewCategory = () => {
         <div className="col-6">
           {" "}
           <p> Imagen Cargada: </p>
-          <div className="border py-5 mb-4">
+          <div className="border-0 py-5 mb-4">
             {!!currentCategoria && (
               <div className="mx-auto" style={{ width: "480px" }}>
                 <img

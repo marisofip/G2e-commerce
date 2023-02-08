@@ -146,7 +146,7 @@ export const Create = () => {
           <div className="col-6">
             {" "}
             <p> Imagen Cargada: </p>
-            <div className="border py-5 mb-4">
+            <div className=" py-5 mb-4">
               {!!currentProduct && (
                 <div className="mx-auto" style={{ width: "480px" }}>
                   <img
