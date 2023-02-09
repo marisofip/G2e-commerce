@@ -22,6 +22,14 @@ export const Create = () => {
     formData.append("img", img);
     console.log(formData);
     register(formData);
+    setNombre("");
+    setDescripcion("");
+    setPrecio("");
+    setCategoria_id("1");
+    setImg("");
+    setCurrentProduct(null);
+    alert("Producto Creado con Exito")
+
   };
 
   const register = async (formData) => {
@@ -137,9 +145,9 @@ export const Create = () => {
               </div>
               <div className="col-12">
                 <button className="btn btn-success m-2">Guardar</button>
-                <button type="button" className="btn btn-danger">
+                <Link to="/" type="button" className="btn btn-danger">
                   Cancelar
-                </button>
+                </Link>
               </div>
             </form>
           </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export const NewCategory = () => {
   const [nombre, setNombre] = useState("");
@@ -15,6 +16,10 @@ export const NewCategory = () => {
     formData.append("img", img);
 
     register(formData);
+    setNombre("");
+    setDescripcion("");
+   img("");
+    alert("Categoria Creada con Exito")
   };
 
   const register = async (formData) => {
@@ -97,9 +102,9 @@ export const NewCategory = () => {
             </div>
             <div className="col-12">
               <button className="btn btn-success m-2">Guardar</button>
-              <button type="button" className="btn btn-danger">
+              <Link to="/" type="button" className="btn btn-danger">
                 Cancelar
-              </button>
+              </Link>
             </div>
           </form>
         </div>
