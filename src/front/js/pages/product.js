@@ -19,7 +19,7 @@ export const Product = () => {
             <tr>
               <th scope="col">ID</th>
               <th scope="col">Nombre Producto</th>
-              <th scope="col">Stock</th>
+          
             </tr>
           </thead>
           <tbody>
@@ -30,10 +30,7 @@ export const Product = () => {
              return (
             <tr key={products.id}>
             <td>{products.id}</td>
-            <td>{products.nombre}</td>
-            <td>
-              {" "}
-              20{" "}
+            <td>{products.nombre}
             
               <Link
                 className="border border-0 bg-transparent float-md-end"
