@@ -13,7 +13,14 @@
     display: flex;
     margin-left: 5px;
    justify-content: space-between;
+
 }
 #carShopping{
   border: none;
+}
+#fallo {
+  background-image: url("http://www.verkomargentina.com/images/Pagina-en-construccion.gif");
+background-position: center; 
+background-size:auto;
+background-repeat: no-repeat;
 }

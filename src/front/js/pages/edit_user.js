@@ -76,7 +76,7 @@ export const EditUser = () => {
               Cancelar
             </button>
           </div>
-        </form>
+        </form>z
       </div>
     </>
   );

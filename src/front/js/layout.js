@@ -52,7 +52,7 @@ const Layout = () => {
             {/* <Route element={<Single />} path="/single/:theid" /> */}
             <Route element={<Shop />} path="/shop" />
             <Route element={<Product />} path="/products" />
-            <Route element={<Create />} path="/create_product" />
+            <Route element={<Create />} path="/create-product" />
             <Route element={<EditProduct />} path="/edit_product/:id" />
             <Route element={<ShoppingCart />} path="/shopping-cart" />
             <Route element={<Shipping />} path="/shipping" />
@@ -68,12 +68,15 @@ const Layout = () => {
  
             <Route
               path="*"
-              element={
-                <div className="row align-items-center" style={{height:"680px"}}>
-                  <h1 className="text-center alert alert-info my-5 p-5">
-                    Oops! El recurso solicitado no está disponible
+              element={<>
+              <div className="row align-items-center m-5" style={{height:"180px"}} >
+                  <h1 className="text-center alert my-5 p-5 mt-1">
+                    Oops! 
                   </h1>
+                                 
                 </div>
+                <div className="row align-items-center mb-5" style={{height:"350px"}} id="fallo"></div>
+               </>
               }
             />
           </Routes>
