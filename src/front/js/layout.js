@@ -27,6 +27,8 @@ import { DetailCategory } from "./component/detail_category";
 import { EditCategory } from "./pages/editCategory";
 import { EditProduct } from "./pages/editProducto1";
 import { Pay_success } from "./pages/pay_success";
+import { Pay_failure } from "./pages/pay_failure";
+import { Pay_pending } from "./pages/pay_pending";
 
 //create your first component
 const Layout = () => {
@@ -60,10 +62,10 @@ const Layout = () => {
             <Route element={<Categoria />} path="/categoryList" />
             <Route element={<NewCategory />} path="/createCategory" />
             <Route element={<EditCategory />} path="/edit-categoria/:id" />
-            {/* <Route element={<Pay_success />} path="/pay_success" />
+            <Route element={<Pay_success />} path="/pay_success" />
             <Route element={<Pay_failure />} path="/pay_failure" />
             <Route element={<Pay_pending />} path="/pay_pending" />
-  */}
+ 
             <Route
               path="*"
               element={

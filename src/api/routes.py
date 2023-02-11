@@ -133,7 +133,7 @@ def create_preference():
     for Product in cart:
         items.append({
             "tittle": Product.get('nombre'),
-            "quantity": Product.get('cantidad'),
+            "quantity": int(Product.get('cantidad')),
             "unit_price": Product.get('precio'),
             "currency_id": 'CLP',
             "picture_url": Product.get('img'),
@@ -143,12 +143,12 @@ def create_preference():
 
     preference_data = {
         "items": items,
-        "payer": {
-           "name": "sofia",
-           "surname": "brito",
-           "email": "test_user_1300934100@testuser.com",
+        # "payer": {
+        #    "name": "sofia",
+        #    "surname": "brito",
+        #    "email": "test_user_1300934100@testuser.com",
 
-        },
+        # },
         "back_urls": {
            "success": "https://3000-roacv-g2ecommerce-4tbx4h3d38v.ws-us85.gitpod.io/pay_success",
            "failure": "https://3000-roacv-g2ecommerce-4tbx4h3d38v.ws-us85.gitpod.io/pay_failure",
@@ -236,10 +236,6 @@ def create_product():
         return jsonify({"message": "Product already exists"}), 400
 
     product = Product()
-    print("Los print")
-    print(categoria_id)
-    print(request.form['categoria_id'])
-    print(resp_img['secure_url'])
     product.nombre = nombre
     product.descripcion = descripcion
     product.precio = precio
