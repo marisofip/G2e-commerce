@@ -20,10 +20,10 @@ export const Shipping = () => {
 
           <div className="col-md-7 col-lg-8">
             <h4 className="mb-3">Direción de envío</h4>
-            <form className="needs-validation" novalidate="">
+            <form className="needs-validation" noValidate="">
               <div className="row g-3">
                 <div className="col-sm-6">
-                  <label for="firstName" className="form-label">
+                  <label htmlFor="firstName" className="form-label">
                     Nombre
                   </label>
                   <input
@@ -36,7 +36,7 @@ export const Shipping = () => {
                 </div>
 
                 <div className="col-sm-6">
-                  <label for="lastName" className="form-label">
+                  <label htmlFor="lastName" className="form-label">
                     Apellido
                   </label>
                   <input
@@ -49,7 +49,7 @@ export const Shipping = () => {
                 </div>
 
                 <div className="col-12">
-                  <label for="email" className="form-label">
+                  <label htmlFor="email" className="form-label">
                     Correo
                   </label>
                   <input
@@ -62,7 +62,7 @@ export const Shipping = () => {
                 </div>
 
                 <div className="col-12">
-                  <label for="address" className="form-label">
+                  <label htmlFor="address" className="form-label">
                     Direccion{" "}
                   </label>
                   <input
@@ -76,7 +76,7 @@ export const Shipping = () => {
                 </div>
 
                 <div className="col-md-6">
-                  <label for="country" className="form-label">
+                  <label htmlFor="country" className="form-label">
                     Comuna
                   </label>
                   <select className="form-select" id="country" required="">
@@ -91,7 +91,7 @@ export const Shipping = () => {
                 </div>
 
                 <div className="col-md-6">
-                  <label for="state" className="form-label">
+                  <label htmlFor="state" className="form-label">
                     Ciudad
                   </label>
                   <select className="form-select" id="state" required="">
@@ -104,7 +104,7 @@ export const Shipping = () => {
                 </div>
 
                 <div className="col-md-6">
-                  <label for="zip" className="form-label">
+                  <label htmlFor="zip" className="form-label">
                     Codigo Postal
                   </label>
                   <input
@@ -117,7 +117,7 @@ export const Shipping = () => {
                   <div className="invalid-feedback">Es requerido.</div>
                 </div>
                 <div className="col-md-6">
-                  <label for="zip" className="form-label">
+                  <label htmlFor="zip" className="form-label">
                     Teléfono{" "}
                   </label>
                   <input

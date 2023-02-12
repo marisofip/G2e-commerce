@@ -21,7 +21,7 @@ export const TotalCompra = () => {
 
     return (
             <div className="">
-                    <h5 className="card-title">Total de la Compra</h5>
+                    <h5 className="card-title mx-auto">Total de la Compra</h5>
                     <div className="border-top border-bottom border-2 mx-auto my-3" style={{width:'400px'}}>
                         <div className="text-end my-3 me-2">
                             <NumericFormat value={vSumTotal} prefix="Sub-total $" thousandSeparator="." decimalSeparator="," displayType="text"   />
