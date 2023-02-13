@@ -52,7 +52,7 @@ const Layout = () => {
             {/* <Route element={<Single />} path="/single/:theid" /> */}
             <Route element={<Shop />} path="/shop" />
             <Route element={<Product />} path="/products" />
-            <Route element={<Create />} path="/create-product" />
+            <Route element={<Create />} path="/create_product" />
             <Route element={<EditProduct />} path="/edit_product/:id" />
             <Route element={<ShoppingCart />} path="/shopping-cart" />
             <Route element={<Shipping />} path="/shipping" />
